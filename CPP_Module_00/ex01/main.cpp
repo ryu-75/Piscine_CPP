@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:54:36 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/10 21:29:34 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/16 18:12:06 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int main()
             std::cout << "Good bye !" << std::endl;
             run = false;
         }
-        else
-            break ;
     }
     return 0;
 }
