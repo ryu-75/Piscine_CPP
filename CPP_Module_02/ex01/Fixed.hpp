@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:55:37 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/16 17:53:32 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/17 16:55:33 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,10 @@ public:
 	// Constructeur surcharge
 	Fixed(const int nbFixed);
 	Fixed(const float nbFloat);
-	// Fixed(const int nbInt);
 	// Destructeur
 	~Fixed();
 	// Methodes
-	// Retourne la valeur du nombre a virurgule sans la convertir
 	int	getRawBits(void) const;
-	// Init la valeur du nb a virgule fixe avec celle passee en para
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
 	int	toInt(void) const;
@@ -42,10 +39,13 @@ public:
 
 private:
 	int	m_nbFixed;
-	// Partie fractionnaire, valeur toujours egal a 8
 	static const int	m_nbBits;
 };
 
+
+// #.............. FUNCTIONS ............................ #
+// Operateur d insertion
 std::ostream&	operator<<(std::ostream &flux, Fixed const& fixed);
+int	ft_pow(int value, int exposant);
 
 #endif // #............... FIXED_HPP .................... #

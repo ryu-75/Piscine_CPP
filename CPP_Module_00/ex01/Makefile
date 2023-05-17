@@ -36,11 +36,13 @@ $(OBJ_DIR)%.o	: 	%.cpp
 
 CPP				= c++
 CPP_FLAG		= -std=c++98
-FLAGS			= -Wall -Wextra -Werror -g
+FLAGS			= -Wall -Wextra -Werror #-g
 $(EXEC)			: $(OBJS)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) $(OBJS) -o $(EXEC)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
-					@printf "$(_BOLD)$(_WHITE)$(CPP) $(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)main.cpp$(_R) \n\n"
+					@printf "$(_BOLD)$(_WHITE)$(CPP) $(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)main.cpp$(_R) \n"
+					@printf "$(_BOLD)$(_WHITE)$(CPP) $(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Annuaire.cpp$(_R) \n"
+					@printf "$(_BOLD)$(_WHITE)$(CPP) $(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Contact.cpp$(_R) \n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)

@@ -13,9 +13,10 @@ int	main(int ac, char **av)
 	{
 		while (i < ac)
 		{
-			for (int j = 0; j < av[i][j]; j++)
+			int	j = 0;
+			while (av[i][j] != 0)
 			{
-				tmp = putwchar(toupper(av[i][j]));
+				tmp = toupper(av[i][j++]);
 				std::cout << tmp;
 			}
 			i++;
