@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 12:54:13 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/17 12:54:14 by nlorion          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Contact.hpp"
 
 std::string Contact::m_fieldContact[5] =
@@ -12,26 +24,30 @@ std::string Contact::m_fieldContact[5] =
 Contact::Contact()
 {
 	for (int i = FirstName; i <= Secret; i++)
-		this->m_information[i] = std::string();
+		m_information[i] = std::string();
 }
 
 bool	Contact::setContact(int index)
 {
-    this->m_index = index;
+    m_index = index;
 	size_t	lenght = 0;
 
 	for (int i = FirstName; i <= Secret; i++)
 	{
 		std::cout << "# " << Contact::m_fieldContact[i] << std::endl;
-		if (!std::getline(std::cin, this->m_information[i]))
+		if (!std::getline(std::cin, m_information[i]))
 			return (false);
+		if (m_information[i].size() == 0)
+			i--;
 	}
 	for (int i = FirstName; i <= Secret; i++)
-		lenght += this->m_information[i].size();
-	if (lenght == 0)
 	{
-		std::cout << "# Contact not added ! " << std::endl;
-		return (false);
+		lenght += m_information[i].size();
+		if (lenght == 0)
+		{
+			std::cout << "# Contact not added ! " << std::endl;
+			return (false) ;
+		}
 	}
 	std::cout << "# Contact added ! " << std::endl;
 	return (true);
@@ -39,25 +55,25 @@ bool	Contact::setContact(int index)
 
 void	Contact::displayHeader()
 {
-	std::cout << "|" << std::setw(10) << this->m_index;
+	std::cout << "|" << std::setw(10) << m_index;
 	for (int i = FirstName; i <= NickName; i++)
 	{
 		std::cout << "|";
-		if (this->m_information[i].size() > 10)
-			std::cout << this->m_information[i].substr(0, 9) << ".";
+		if (m_information[i].size() > 10)
+			std::cout << m_information[i].substr(0, 9) << ".";
 		else
-			std::cout << std::setw(10) << this->m_information[i];
+			std::cout << std::setw(10) << m_information[i];
 	}
 	std::cout << "|" << std::endl;
 }
 
 void	Contact::displayContact()
 {
-	std::cout << "# Contact [" << this->m_index << "]" << std::endl;
+	std::cout << "# Contact [" << m_index << "]" << std::endl;
 	for (int i = FirstName; i <= Secret; i++)
 	{
 		std::cout << Contact::m_fieldContact[i] << ": ";
-		std::cout <<this->m_information[i] << std::endl;
+		std::cout << m_information[i] << std::endl;
 	}
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/17 12:54:17 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/17 12:54:18 by nlorion          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -12,7 +24,7 @@ class Contact
 		bool	setContact(int index);
 		void	displayHeader();
 		void	displayContact();
-		virtual	~Contact();
+		~Contact();
 	private:
 		int	m_index;
 		static std::string	m_fieldContact[5];

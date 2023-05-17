@@ -40,7 +40,7 @@ FLAGS			= -Wall -Wextra -Werror -g
 $(EXEC)			: $(OBJS)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) $(OBJS) -o $(EXEC)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
-					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS)$(_R) main.cpp\n\n"
+					@printf "$(_BOLD)$(_WHITE)$(CPP) $(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)main.cpp$(_R) \n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)

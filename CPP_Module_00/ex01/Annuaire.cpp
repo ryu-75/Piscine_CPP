@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Annuaire.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 13:55:00 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/10 21:30:28 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/17 12:51:36 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Annuaire.hpp"
 
-Annuaire::Annuaire()
+int Annuaire::m_i = 0;
+
+Annuaire::Annuaire() : m_amount(0)
 {
-    this->amount = 0;
 }
 
 void    Annuaire::setRaw(void)
@@ -32,7 +33,7 @@ void    Annuaire::setRaw(void)
     std::cout << std::setw(10);
     std::cout << "NICKNAME";
     std::cout << "|" << std::endl;
-    for (int i = 0; i <= 66; i++)
+    for (int i = 0; i <= 44; i++)
         std::cout << "*";
     std::cout << std::endl;
     return ;
@@ -46,48 +47,52 @@ void    Annuaire::launch(void)
 
 bool    Annuaire::setContact(void)
 {
-    int index;
-
-    if (this->amount == 8)
+    if (m_amount == 8)
     {
-        index = 0;
-        this->contacts[index].setContact(index + 1);
-        index++;
+        if (m_i == 8)
+            m_i = 0;
+        m_contacts[m_i].setContact(m_i + 1);
+        ++m_i;
     }
-    else if (this->contacts[this->amount].setContact(this->amount + 1))
-        this->amount++;
+    else if (m_contacts[m_amount].setContact(m_amount + 1))
+        m_amount++;
     else
-        return (1);
-    for (int i = 0; i <= 66; i++)
+        return (false);
+    for (int i = 0; i <= 44; i++)
         std::cout << "*";
     std::cout << std::endl;
-    return (0);
+    return (true);
 }
 
 void    Annuaire::getAnnuaire(void)
 {
     setRaw();
-    for (int i = 0; i < this->amount; i++)
-        this->contacts[i].displayHeader();
+    for (int i = 0; i < m_amount; i++)
+        m_contacts[i].displayHeader();
 }
 
-void    Annuaire::searchContact(void)
+bool    Annuaire::searchContact(void)
 {
     int index = 0;
-    if (this->amount == 0)
+
+    if (m_amount == 0)
         std::cout << "# You need to add a contact before searching" << std::endl;
     else
     {
         getAnnuaire();
-        while (!(std::cin >> index) || (index < 0 || index > this->amount))
+        while (!(std::cin >> index) || (index <= 0 || index > 8 || index > m_amount))
         {
             std::cin.clear();
             std::cin.ignore();
         }
         std::cin.ignore();
         if (index > 0)
-            this->contacts[index - 1].displayContact();
+        {
+            m_contacts[index - 1].displayContact();
+            return (true);
+        }
     }
+    return (false);
 }
 
 Annuaire::~Annuaire()
