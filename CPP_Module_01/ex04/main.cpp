@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/13 10:13:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/13 12:44:11 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 13:07:08 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	checkArguments(int ac, char **av, std::ifstream &src)
 	src.open(av[1]);
 	if (!(src.is_open()))
 	{
-		std::cout << "File doesn't exit" << std::endl;
+		std::cout << "File doesn't exit or you do not have the autorization" << std::endl;
 		return (1);
 	}
 	return (0);

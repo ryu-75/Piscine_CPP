@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:59:04 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/17 18:49:50 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 11:54:01 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ class Fixed
 {
 public:
 	Fixed();
+	Fixed(int a = 0);
+	Fixed(Fixed const& copy);
+	Fixed& operator=(Fixed const& rhs);
 	// # ............ METHODS ................................ #
 	static Fixed	max(Fixed const& a, Fixed const& b);
 	static Fixed	max(Fixed a, Fixed b);
@@ -33,22 +36,22 @@ public:
 	bool	operator>(Fixed const& a);
 	bool	operator>=(Fixed const& a);
 	// # ............ METHODS ARITHMETIC OPERATOR ............ #
-	void	operator+=(const Fixed& a);
-	void	operator-=(Fixed const&a);
-	void	operator/=(Fixed const& a);
-	void	operator*=(Fixed const& a);
+	void	operator+(const Fixed& a);
+	void	operator-(Fixed const&a);
+	void	operator/(Fixed const& a);
+	void	operator*(Fixed const& a);
 	~Fixed();
 private:
 	int	m_a;
 	int	m_b;
-	static int m_nbBits;
+	static const int m_nbBits;
 };
 
 // # ............ OVERLOAD ARITHMETIC OPERATOR .............. #
 Fixed	operator+(Fixed const& a, Fixed const& b);
-Fixed	operator-(Fixed const&a, Fixed const& b);
-Fixed	operator*(Fixed const&a, Fixed const& b);
-Fixed	operator/(Fixed const&a, Fixed const& b);
+Fixed	operator-(Fixed const& a, Fixed const& b);
+Fixed	operator*(Fixed const& a, Fixed const& b);
+Fixed	operator/(Fixed const& a, Fixed const& b);
 
 // # ............ OVERLOAD COMPARE OPERATOR ................. #
 Fixed	operator==(Fixed const& a, Fixed const& b);

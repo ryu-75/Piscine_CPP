@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 15:26:59 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/12 16:45:33 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 12:48:02 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
-#include "Weapon.hpp"
 
 HumanA::HumanA(std::string name, Weapon &weapon) : m_name(name), m_weapon(weapon)
 {

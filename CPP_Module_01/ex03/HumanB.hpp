@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 16:19:13 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/12 16:54:55 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 12:38:26 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMAN_B_HPP
-# define HUMAN_B_HP
+# define HUMAN_B_HPP
 
 #include <iostream>
 #include <string>
@@ -21,7 +21,7 @@ class HumanB
 {
 public:
 	HumanB(std::string name);
-	void	setWeapon(Weapon weapon);
+	void	setWeapon(Weapon &weapon);
 	void	attack() const;
 private:
 	std::string	m_name;

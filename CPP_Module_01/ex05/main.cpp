@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 14:39:15 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/14 16:46:45 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 13:12:47 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ int	main(int ac, char *av[])
 		return (1);
 	Harl	harl;
 
+	harl.complain(av[1]);
 	return (0);
 }

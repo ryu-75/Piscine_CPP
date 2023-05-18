@@ -6,11 +6,13 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 18:15:36 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/17 19:08:52 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 11:53:23 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int	Fixed::m_nbBits = 8;
 
 Fixed::Fixed()
 {
@@ -32,9 +34,46 @@ static Fixed	min(Fixed const& a, Fixed const& b)
 {
 }
 
-Fixed& Fixed::operator+=(const Fixed& a)
+	// # ............ METHODS COMPARE OPERATOR ............... #
+bool	Fixed::operator==(Fixed const& a)
 {
+}
 
+bool	Fixed::operator!=(Fixed const& a)
+{
+}
+
+bool	Fixed::operator<(Fixed const& a)
+{
+}
+
+bool	Fixed::operator<=(Fixed const& a)
+{
+}
+
+bool	Fixed::operator>(Fixed const& a)
+{
+}
+
+bool	Fixed::operator>=(Fixed const& a)
+{
+}
+
+	// # ............ METHODS ARITHMETIC OPERATOR ............ #
+void	Fixed::operator+(const Fixed& a)
+{
+}
+
+void	Fixed::operator-(const Fixed& a)
+{
+}
+
+void	Fixed::operator/(const Fixed& a)
+{
+}
+
+void	Fixed::operator*(const Fixed& a)
+{
 }
 
 // # ............ OVERLOAD ARITHMETIC OPERATOR .............. #
