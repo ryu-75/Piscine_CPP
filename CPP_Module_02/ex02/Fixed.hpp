@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/17 16:59:04 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/18 11:54:01 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 18:20:18 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,50 +15,58 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed
 {
 public:
 	Fixed();
-	Fixed(int a = 0);
+	Fixed(int const nb);
+	Fixed(float const nb);
 	Fixed(Fixed const& copy);
-	Fixed& operator=(Fixed const& rhs);
 	// # ............ METHODS ................................ #
-	static Fixed	max(Fixed const& a, Fixed const& b);
-	static Fixed	max(Fixed a, Fixed b);
-	static Fixed	min(Fixed const& a, Fixed const& b);
-	static Fixed	min(Fixed a, Fixed b);
+	Fixed& operator=(Fixed const& rhs);
+	static Fixed	max(Fixed const &a, Fixed const &b);
+	static Fixed	max(Fixed &a, Fixed &b);
+	static Fixed	min(Fixed const &a, Fixed const &b);
+	static Fixed	min(Fixed &a, Fixed &b);
+	float	toFloat(void) const;
+	int		toInt(void) const;
+
 	// # ............ METHODS COMPARE OPERATOR ............... #
-	bool	operator==(Fixed const& a);
-	bool	operator!=(Fixed const& a);
-	bool	operator<(Fixed const& a);
-	bool	operator<=(Fixed const& a);
-	bool	operator>(Fixed const& a);
-	bool	operator>=(Fixed const& a);
+	bool	isEqual(Fixed const& b) const;
+	bool	isDiff(Fixed const& b) const;
+	bool	isInf(Fixed const& b) const;
+	bool	isInfEqual(Fixed const& b) const;
+	bool	isSup(Fixed const& b) const;
+	bool	isSupEqual(Fixed const& b) const;
+
 	// # ............ METHODS ARITHMETIC OPERATOR ............ #
-	void	operator+(const Fixed& a);
-	void	operator-(Fixed const&a);
-	void	operator/(Fixed const& a);
-	void	operator*(Fixed const& a);
+	Fixed&	operator+=(Fixed const& b);
+	Fixed&	operator-=(Fixed const& b);
+	Fixed&	operator/=(Fixed const& b);
+	Fixed&	operator*=(Fixed const& b);
 	~Fixed();
 private:
-	int	m_a;
-	int	m_b;
+	int	m_nbFixed;
 	static const int m_nbBits;
 };
 
-// # ............ OVERLOAD ARITHMETIC OPERATOR .............. #
+// # ............ FUNCTIONS ARITHMETIC OPERATOR .............. #
 Fixed	operator+(Fixed const& a, Fixed const& b);
 Fixed	operator-(Fixed const& a, Fixed const& b);
 Fixed	operator*(Fixed const& a, Fixed const& b);
 Fixed	operator/(Fixed const& a, Fixed const& b);
 
-// # ............ OVERLOAD COMPARE OPERATOR ................. #
-Fixed	operator==(Fixed const& a, Fixed const& b);
-Fixed	operator!=(Fixed const& a, Fixed const& b);
-Fixed	operator>(Fixed const& a, Fixed const& b);
-Fixed	operator>=(Fixed const& a, Fixed const& b);
-Fixed	operator<(Fixed const& a, Fixed const& b);
-Fixed	operator<=(Fixed const& a, Fixed const& b);
+// # ............ FUNCTIONS COMPARISON OPERATOR .............. #
+bool	operator==(Fixed const& a, Fixed const& b);
+bool	operator!=(Fixed const& a, Fixed const& b);
+bool	operator>(Fixed const& a, Fixed const& b);
+bool	operator>=(Fixed const& a, Fixed const& b);
+bool	operator<(Fixed const& a, Fixed const& b);
+bool	operator<=(Fixed const& a, Fixed const& b);
+
+std::ostream&	operator<<(std::ostream &flux, Fixed const& nb);
+int	ft_power(int nb, int exposant);
 
 #endif // #............. FIXED_HPP .......................... #

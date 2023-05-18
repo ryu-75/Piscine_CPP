@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:55:37 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/17 16:55:33 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/18 15:07:26 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,12 @@ public:
 	// Destructeur
 	~Fixed();
 	// Methodes
-	int	getRawBits(void) const;
+	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
-	int	toInt(void) const;
+	int		toInt(void) const;
 	void	displayValue(std::ostream &flux) const;
 	Fixed&	operator=(Fixed const& nbFixedCopy);
-
 private:
 	int	m_nbFixed;
 	static const int	m_nbBits;
