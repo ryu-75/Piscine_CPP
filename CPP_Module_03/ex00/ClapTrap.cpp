@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:58:44 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/19 18:15:53 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/19 19:04:30 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name) : m_name(name)
 {
+	this->m_hitPoints = 10;
+	this->m_energyPoints = 10;
+	this->m_attackDamage = 0;
 	std::cout << this->m_name << " was created."<< std::endl;
 }
 
@@ -37,7 +40,7 @@ void	ClapTrap::attack(const std::string& target)
 	else
 	{
 		std::cout << this->m_name << " " << this->m_hitPoints << std::endl;
-		takeDamage(this->m_attackDamage);
+		this->m_energyPoints--;
 	}
 }
 
