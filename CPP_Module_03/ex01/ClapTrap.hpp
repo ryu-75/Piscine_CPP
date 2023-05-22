@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:58:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/22 15:06:10 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/22 15:08:29 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	void	display(void) const;
 	~ClapTrap();
 
-private:
+protected:
 	std::string	m_name;
 	int	m_hitPoints;
 	int	m_energyPoints;
