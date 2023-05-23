@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:55:15 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 14:14:26 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/23 16:49:18 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ ScavTrap::ScavTrap(std::string name)
 {
 	std::cout << "ScavTrap overloaded constructor are called" << std::endl;
 	this->m_name = name;
-	m_hitPoints = 100;
-	m_energyPoints = 50;
-	m_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(ScavTrap const& copy)

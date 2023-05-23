@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:58:44 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/22 15:34:29 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/23 12:21:37 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap()
 {
-	this->m_name = "Peter";
+	this->m_name = "\e[32m\e[1mPeter\e[0m";
 	this->m_hitPoints = 10;
 	this->m_energyPoints = 10;
 	this->m_attackDamage = 0;
@@ -47,13 +47,13 @@ void	ClapTrap::attack(const std::string& target)
 	if (!m_energyPoints)
 		std::cout << "You don't have enough energy" << std::endl;
 	else if (!m_hitPoints)
-		std::cout << "What do you expected ? You're dead !" << std::endl;
+		std::cout << "What do you expected " << this->m_name << " ? You're dead !" << std::endl;
 	else
 	{
 		std::cout << this->m_name << " attacks " << target;
 		std::cout << ", causing " << this->m_attackDamage << " points of damage!" << std::endl;
 		std::cout << this->m_name << " lose 1 energy point." << std::endl;
-		this->m_energyPoints--;
+		checkEnergy();
 	}
 }
 
@@ -65,12 +65,22 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		this->m_hitPoints = 0;
 }
 
+void	ClapTrap::checkEnergy(void)
+{
+	this->m_energyPoints--;
+	if (this->m_energyPoints <= 0)
+	{
+		this->m_energyPoints = 0;
+		std::cout << "You don't have energy" << std::endl;
+	}
+}
+
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	std::cout << this->m_name << " receive " << amount << " hit points." << std::endl;
 	this->m_hitPoints += amount;
 	std::cout << this->m_name << " lose 1 energy point." << std::endl;
-	this->m_energyPoints--;
+	checkEnergy();
 	if (this->m_hitPoints > 10)
 		this->m_hitPoints = 10;
 }
@@ -87,5 +97,4 @@ void	ClapTrap::display(void) const
 ClapTrap::~ClapTrap()
 {
 	std::cout << "ClapTrap destructor are called for " << this->m_name << std::endl;
-
 }

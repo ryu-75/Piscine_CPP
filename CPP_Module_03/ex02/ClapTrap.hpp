@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/19 16:58:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/22 15:08:29 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/23 14:10:31 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ public:
 	void	attack(const std::string& target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-	void	display(void) const;
+	void	checkEnergy(void);
+	virtual void	display(void) const;
 	~ClapTrap();
 
 protected:

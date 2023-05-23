@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:45:34 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/22 15:38:14 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/23 14:14:16 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,11 @@ public:
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const& copy);
 	ScavTrap&	operator=(ScavTrap const& copy);
-	void	guardGate(void);
+	void	getGuardGate(void);
+	void	display(void) const;
 	~ScavTrap();
 private:
-
+	void	guardGate(void);
 };
 
 #endif // #......................... SCAV_TRAP_HPP ............................ #

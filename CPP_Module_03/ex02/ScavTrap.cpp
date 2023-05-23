@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/22 14:55:15 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/22 15:41:16 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/23 14:12:55 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 ScavTrap::ScavTrap()
 {
 	std::cout << "ScavTrap default constructor are called" << std::endl;
-	m_name = "Billy";
+	m_name = "\e[36m\e[1mBilly\e[0m";
 	m_hitPoints = 100;
 	m_energyPoints = 50;
 	m_attackDamage = 20;
@@ -51,9 +51,23 @@ ScavTrap&	ScavTrap::operator=(ScavTrap const& copy)
 	return (*this);
 }
 
+void	ScavTrap::getGuardGate(void)
+{
+	guardGate();
+}
+
 void	ScavTrap::guardGate(void)
 {
 	std::cout << this->m_name << " launch the Gate Keeper mode" << std::endl;
+}
+
+void	ScavTrap::display(void) const
+{
+	std::cout << "\e[39m\e[1m" << m_name << "\e[0m" << std::endl;
+	std::cout << "Hit point : " << m_hitPoints << std::endl;
+	std::cout << "Energy point : " << m_energyPoints << std::endl;
+	std::cout << "Damage point : " << m_attackDamage << std::endl;
+	std::cout << std::endl;
 }
 
 ScavTrap::~ScavTrap()

@@ -14,17 +14,18 @@ _MAGENTA  =\e[35m
 _CYAN     =\e[96m
 _WHITE    =\e[97m
 
-NAME		= ScavTrap
+NAME		= DiamonTrap
 EXEC		= $(NAME)
 
 # ................... CONTENT .................................
 
 SRC_FILES		= 	main.cpp		\
 					ClapTrap.cpp	\
-					ScavTrap.cpp
+					ScavTrap.cpp	\
+					FragTrap.cpp	\
+					DiamonTrap.cpp
 
 # ................... OBJECT ..................................
-
 OBJ_DIR			= obj/
 OBJS			= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.cpp=%.o))
 $(OBJ_DIR)%.o	: 	%.cpp
@@ -35,13 +36,15 @@ $(OBJ_DIR)%.o	: 	%.cpp
 
 CPP				= c++
 CPP_FLAG		= -std=c++98
-FLAGS			= -Wall -Wextra -Werror #-g
+FLAGS			= -Wall -Wextra -Werror -Wshadow -Wno-shadow #-g
 $(EXEC)			: $(OBJS)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) $(OBJS) -o $(EXEC)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)main.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)ClapTrap.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)ScavTrap.cpp$(_R)\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)FragTrap.cpp$(_R)\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)DiamondTrap.cpp$(_R)\n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)

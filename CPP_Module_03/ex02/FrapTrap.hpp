@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   FrapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 14:45:34 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 14:12:46 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/23 13:21:37 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/23 14:12:49 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAV_TRAP_HPP
-# define SCAV_TRAP_HPP
+#ifndef FRAP_TRAP_HPP
+# define FRAP_TRAP_HPP
 
 #include <iostream>
 #include <string>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class FrapTrap : public ClapTrap
 {
-public:
-	ScavTrap();
-	ScavTrap(std::string name);
-	ScavTrap(ScavTrap const& copy);
-	ScavTrap&	operator=(ScavTrap const& copy);
-	void	getGuardGate(void);
+public :
+	FrapTrap();
+	FrapTrap(std::string name);
+	FrapTrap(FrapTrap const& copy);
+	FrapTrap&	operator=(FrapTrap const& copy);
+	void	getHighFivesGuys(void);
 	void	display(void) const;
-	~ScavTrap();
-private:
-	void	guardGate(void);
+	~FrapTrap();
+private :
+	void	highFivesGuys(void);
 };
 
-#endif // #......................... SCAV_TRAP_HPP ............................ #
+#endif // #........................ FRAP_TRAP_HPP .......................... #
