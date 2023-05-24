@@ -3,38 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 11:52:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 12:28:50 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 10:59:24 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 17:55:42 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main(void)
 {
-	ScavTrap	s_1;	// Default name "Billy"
-	ClapTrap	c_1;
-	ClapTrap	c_2("\e[33m\e[1mJohn\e[0m");
+	ScavTrap	a;
+	ClapTrap	b("Harry");
+	ScavTrap	c = a;
 
-	ScavTrap	copy_s1 = s_1;	// Billy copy
+	a.getGuardGate();
+	a.attack("Goblin");
+	a.takeDamage(5);
+	a.beRepaired(2);
 
-	std::cout << std::endl;
-	c_1.attack("Goblin");
-	c_1.takeDamage(11);
-	s_1.takeDamage(15);
-	c_1.attack("\e[34m\e[1mJohn\e[0m");
-	copy_s1.attack("Troll");
-	c_2.attack("Golum");
-	s_1.getGuardGate();		// Billy
-	copy_s1.getGuardGate();	// Billy copy
+	b.attack("Troll");
+	b.takeDamage(3);
+	b.beRepaired(1);
 
-	std::cout << std::endl;
-	s_1.display();
-	c_1.display();
-	c_2.display();
-	copy_s1.display();
+	c.attack("Paladin");
+	c.takeDamage(8);
+	c.beRepaired(4);
+
+	a.display();
+	b.display();
+	c.display();
 	return (0);
 }

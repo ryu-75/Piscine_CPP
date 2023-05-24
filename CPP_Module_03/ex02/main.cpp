@@ -3,44 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 11:52:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 13:49:46 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 10:59:24 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 18:20:14 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
-#include "FrapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main(void)
 {
-	FrapTrap	f_1;
-	ScavTrap	s_1;	// Default name "Billy"
-	ClapTrap	c_1;
-	ClapTrap	c_2("\e[33m\e[1mJohn\e[0m");
-
-	ScavTrap	copy_s1 = s_1;	// Billy copy
+	ClapTrap	a("Harry");
+	ScavTrap	b;
+	FragTrap	c;
 
 	std::cout << std::endl;
-	c_1.attack("Goblin");
-	c_1.takeDamage(11);
-	s_1.takeDamage(15);
-	f_1.takeDamage(25);
-	f_1.attack("Paladin");
-	f_1.getHighFivesGuys();
-	c_1.attack("\e[34m\e[1mJohn\e[0m");
-	copy_s1.attack("Troll");
-	c_2.attack("Golum");
-	s_1.getGuardGate();		// Billy
-	copy_s1.getGuardGate();	// Billy copy
-
+	a.attack("Troll");
+	a.takeDamage(3);
+	a.beRepaired(1);
 	std::cout << std::endl;
-	s_1.display();
-	c_1.display();
-	c_2.display();
-	f_1.display();
-	copy_s1.display();
+	b.getGuardGate();
+	b.attack("Goblin");
+	b.takeDamage(5);
+	b.beRepaired(2);
+	std::cout << std::endl;
+	c.attack("Paladin");
+	c.takeDamage(8);
+	c.beRepaired(4);
+	c.getHighFivesGuys();
+	a.display();
+	b.display();
+	c.display();
+	std::cout << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 14:45:34 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 16:49:30 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 11:48:27 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 18:24:14 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,18 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-public:
+public :
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const& copy);
-	ScavTrap&	operator=(ScavTrap const& copy);
 	void	getGuardGate(void);
-	void	display(void) const;
+	void	attack(const std::string& target);
+	void	display(void);
 	~ScavTrap();
-private:
+private :
 	void	guardGate(void);
 };
 
-#endif // #......................... SCAV_TRAP_HPP ............................ #
+#endif // # ................. SCAV_TRAP_HPP ................................ #
+
+

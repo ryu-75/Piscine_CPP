@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/22 14:55:15 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 16:49:18 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 11:48:24 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 18:17:16 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,25 @@
 
 ScavTrap::ScavTrap()
 {
-	std::cout << "ScavTrap default constructor are called" << std::endl;
-	m_name = "\e[36m\e[1mBilly\e[0m";
-	m_hitPoints = 100;
-	m_energyPoints = 50;
-	m_attackDamage = 20;
+	std::cout << "ScavTrap default constructor" << std::endl;
+	m_hit = 100;
+	m_energy = 50;
+	m_damage = 20;
 }
 
-ScavTrap::ScavTrap(std::string name)
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap overloaded constructor are called" << std::endl;
-	this->m_name = name;
+	std::cout << "ScavTrap overload constructor" << std::endl;
+	m_name = name;
+	m_hit = 100;
+	m_energy = 50;
+	m_damage = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& copy)
+ScavTrap::ScavTrap(ScavTrap const& copy) : ClapTrap(copy)
 {
-	std::cout << "ScavTrap copy constructor are called" << std::endl;
-	m_name = copy.m_name;
-	m_attackDamage = copy.m_attackDamage;
-	m_hitPoints = copy.m_hitPoints;
-	m_energyPoints = copy.m_energyPoints;
-}
-
-ScavTrap&	ScavTrap::operator=(ScavTrap const& copy)
-{
-	if (this != &copy)
-	{
-		m_name = copy.m_name;
-		m_attackDamage = copy.m_attackDamage;
-		m_hitPoints = copy.m_hitPoints;
-		m_energyPoints = copy.m_energyPoints;
-	}
-	return (*this);
+	*this = copy;
+	std::cout << "ScavTrap constructor copy" << std::endl;
 }
 
 void	ScavTrap::getGuardGate(void)
@@ -55,19 +42,31 @@ void	ScavTrap::getGuardGate(void)
 
 void	ScavTrap::guardGate(void)
 {
-	std::cout << this->m_name << " launch the Gate Keeper mode" << std::endl;
+	std::cout << BOLD BLUE << ClapTrap::m_name << R << " activated guard gate mode" << std::endl;
 }
 
-void	ScavTrap::display(void) const
+void	ScavTrap::attack(const std::string& target)
 {
-	std::cout << "\e[39m\e[1m" << m_name << "\e[0m" << std::endl;
-	std::cout << "Hit point : " << m_hitPoints << std::endl;
-	std::cout << "Energy point : " << m_energyPoints << std::endl;
-	std::cout << "Damage point : " << m_attackDamage << std::endl;
+	if (m_hit == 0)
+		std::cout << "You can't attack your fow, you're dead dude !" << std::endl;
+	else if (m_energy == 0)
+		std::cout << "You don't have enough energy to attack" << std::endl;
+	std::cout << "ScavTrap " << BOLD BLUE << m_name << R << " attacks " << target << ", causing " << m_damage << " points of damage!" << std::endl;
+	m_energy--;
+	if (m_energy < 0)
+		m_energy = 0;
+}
+
+void	ScavTrap::display(void)
+{
 	std::cout << std::endl;
+	std::cout << BOLD BLUE << m_name << R << std::endl;
+	std::cout << "Hit points : " << m_hit << std::endl;
+	std::cout << "Energy points : " << m_energy << std::endl;
+	std::cout << "Damage points : " << m_damage << std::endl;
 }
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap deconstructor are called for " << this->m_name << std::endl;
+	std::cout << "ScavTrap destructor called" << std::endl;
 }

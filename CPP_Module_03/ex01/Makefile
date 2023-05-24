@@ -1,18 +1,18 @@
 # .................. COLORS ...................................
 
-_BOLD      =\e[1m
+_BOLD      = \e[1m
 
 # RESET list
-_R          =\e[0m
+_R          = \e[0m
 
 # Colors
-_RED      =\e[91m
-_GREEN    =\e[92m
-_YELLOW   =\e[93m
-_BLUE     =\e[94m
-_MAGENTA  =\e[35m
-_CYAN     =\e[96m
-_WHITE    =\e[97m
+_RED      =	\e[91m
+_GREEN    =	\e[92m
+_YELLOW   =	\e[93m
+_BLUE     =	\e[94m
+_MAGENTA  =	\e[35m
+_CYAN     =	\e[96m
+_WHITE    =	\e[97m
 
 NAME		= ScavTrap
 EXEC		= $(NAME)
@@ -41,7 +41,7 @@ $(EXEC)			: $(OBJS)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)main.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)ClapTrap.cpp$(_R)\n"
-					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)ScavTrap.cpp$(_R)\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)ScavTrap.cpp$(_R)\n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)

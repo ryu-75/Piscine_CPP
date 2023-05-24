@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/19 16:58:42 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/22 15:07:12 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 10:59:24 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 11:47:09 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,24 @@
 
 int	main(void)
 {
-	ClapTrap	firstPerson("Jean");
-	ClapTrap	secondPerson("Kevin");
+	ClapTrap	a;
+	ClapTrap	b("John");
+	ClapTrap	c = b;
 
-	firstPerson.takeDamage(5);
-	secondPerson.takeDamage(6);
+	a.attack("Goblin");
+	b.attack("Black witch");
+	c.attack("Troll");
+	
+	a.takeDamage(5);
+	b.takeDamage(2);
+	c.takeDamage(4);
 
-	std::cout << std::endl;
-	firstPerson.display();
-	std::cout << std::endl;
-	secondPerson.display();
-	std::cout << std::endl;
+	a.beRepaired(3);
+	b.beRepaired(2);
+	c.beRepaired(3);
 
-	ClapTrap	thirdPersonn;
-
-	thirdPersonn = secondPerson;
-	thirdPersonn.attack("Troll");
-
-	secondPerson.beRepaired(2);
-	firstPerson.beRepaired(1);
-
-	std::cout << std::endl;
-	firstPerson.display();
-	std::cout << std::endl;
-	secondPerson.display();
-	std::cout << std::endl;
-	thirdPersonn.display();
-	std::cout << std::endl;
+	a.display();
+	b.display();
+	c.display();
 	return (0);
 }

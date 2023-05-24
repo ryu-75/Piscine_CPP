@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FrapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 13:21:37 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 14:12:49 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 17:59:06 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 18:15:34 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAP_TRAP_HPP
-# define FRAP_TRAP_HPP
+#ifndef FRAG_TRAP_HPP
+# define FRAG_TRAP_HPP
 
 #include <iostream>
 #include <string>
 #include "ClapTrap.hpp"
 
-class FrapTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 public :
-	FrapTrap();
-	FrapTrap(std::string name);
-	FrapTrap(FrapTrap const& copy);
-	FrapTrap&	operator=(FrapTrap const& copy);
+	FragTrap();
+	FragTrap(std::string name);
+	FragTrap(FragTrap const& copy);
 	void	getHighFivesGuys(void);
-	void	display(void) const;
-	~FrapTrap();
+	void	attack(const std::string& target);
+	void	display(void);
+	~FragTrap();
 private :
 	void	highFivesGuys(void);
 };
 
-#endif // #........................ FRAP_TRAP_HPP .......................... #
+#endif //# ....................... FRAG_TRAP_HPP .................................#

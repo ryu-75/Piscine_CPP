@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 13:21:37 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 16:49:44 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 17:59:06 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 18:24:09 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAP_TRAP_HPP
-# define FRAP_TRAP_HPP
+#ifndef FRAG_TRAP_HPP
+# define FRAG_TRAP_HPP
 
 #include <iostream>
 #include <string>
@@ -23,12 +23,12 @@ public :
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(FragTrap const& copy);
-	FragTrap&	operator=(FragTrap const& copy);
 	void	getHighFivesGuys(void);
-	void	display(void) const;
+	void	attack(const std::string& target);
+	void	display(void);
 	~FragTrap();
 private :
 	void	highFivesGuys(void);
 };
 
-#endif // #........................ FRAP_TRAP_HPP .......................... #
+#endif //# ....................... FRAG_TRAP_HPP .................................#

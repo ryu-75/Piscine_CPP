@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 13:52:56 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/23 18:27:05 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/24 10:59:24 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/24 19:36:05 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,35 @@
 
 int	main(void)
 {
-// 	ClapTrap	c_1;	// Default name : Peter
-// 	ScavTrap	s_1;	// Default name : Billy
-// 	FragTrap	f_1;	// Default name : Harry
-	DiamonTrap	d_1;	// Default name : Harry_clap_name
-
-	// std::cout << std::endl;
-	// c_1.attack("Goblin");
-	// c_1.takeDamage(30);
-	// c_1.beRepaired(5);
-	d_1.getWhoAmI();
-	// d_1.attack("Goblin");
-	// d_1.takeDamage(25);
-	// d_1.beRepaired(5);
-	// s_1.attack("Elfe");
-	// s_1.takeDamage(15);
-	// s_1.beRepaired(5);
-	// f_1.attack("Troll");
-	// f_1.takeDamage(10);
-	// f_1.beRepaired(5);
+	ClapTrap	a("Harry");
+	ScavTrap	b;
+	FragTrap	c;
+	DiamonTrap	d;
 
 	std::cout << std::endl;
-	// c_1.display();
-	// s_1.display();
-	// f_1.display();
-	d_1.display();
+	a.attack("Troll");
+	a.takeDamage(3);
+	a.beRepaired(1);
+	std::cout << std::endl;
+	b.getGuardGate();
+	b.attack("Goblin");
+	b.takeDamage(5);
+	b.beRepaired(2);
+	std::cout << std::endl;
+	c.attack("Paladin");
+	c.takeDamage(8);
+	c.beRepaired(4);
+	c.getHighFivesGuys();
+	std::cout << std::endl;
+	d.attack("Paladin");
+	d.takeDamage(8);
+	d.beRepaired(4);
+	d.getWhoAmI();
+
+	a.display();
+	b.display();
+	c.display();
+	d.display();
+	std::cout << std::endl;
 	return (0);
 }
