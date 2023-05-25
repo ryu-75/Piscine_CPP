@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:59:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/24 18:24:09 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/25 13:39:40 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public :
 	FragTrap();
 	FragTrap(std::string name);
 	FragTrap(FragTrap const& copy);
+	FragTrap&	operator=(FragTrap const& copy);
 	void	getHighFivesGuys(void);
 	void	attack(const std::string& target);
 	void	display(void);

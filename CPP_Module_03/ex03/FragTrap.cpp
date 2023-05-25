@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 17:58:54 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/24 18:54:06 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/25 13:39:43 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,23 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 
 FragTrap::FragTrap(FragTrap const& copy) : ClapTrap(copy)
 {
-	*this = copy;
+	m_name = copy.m_name;
+	m_hit = copy.m_hit;
+	m_energy = copy.m_energy;
+	m_damage = copy.m_damage;
 	std::cout << "FragTrap copy constructor called" << std::endl;
+}
+
+FragTrap&	FragTrap::operator=(FragTrap const& copy)
+{
+	if (this != &copy)
+	{
+		m_name = copy.m_name;
+		m_hit = copy.m_hit;
+		m_energy = copy.m_energy;
+		m_damage = copy.m_damage;
+	}
+	return (*this);
 }
 
 void	FragTrap::getHighFivesGuys(void)

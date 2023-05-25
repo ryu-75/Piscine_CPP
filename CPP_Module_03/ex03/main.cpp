@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:59:24 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/24 19:36:05 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/25 14:15:19 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	ClapTrap	a("Harry");
+	ClapTrap	a;
 	ScavTrap	b;
 	FragTrap	c;
 	DiamonTrap	d;

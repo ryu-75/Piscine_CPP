@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:48:27 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/24 18:24:14 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/25 13:40:43 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ public :
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(ScavTrap const& copy);
+	ScavTrap&	operator=(ScavTrap const& copy);
 	void	getGuardGate(void);
 	void	attack(const std::string& target);
 	void	display(void);

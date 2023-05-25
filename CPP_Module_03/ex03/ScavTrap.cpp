@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:48:24 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/24 18:17:16 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/25 13:43:27 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,23 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(ScavTrap const& copy) : ClapTrap(copy)
 {
-	*this = copy;
 	std::cout << "ScavTrap constructor copy" << std::endl;
+	m_name = copy.m_name;
+	m_hit = copy.m_hit;
+	m_energy = copy.m_energy;
+	m_damage = copy.m_damage;
+}
+
+ScavTrap&	ScavTrap::operator=(ScavTrap const& copy)
+{
+	if (this != &copy)
+	{
+		m_name = copy.m_name;
+		m_hit = copy.m_hit;
+		m_energy = copy.m_energy;
+		m_damage = copy.m_damage;
+	}
+	return (*this);
 }
 
 void	ScavTrap::getGuardGate(void)
