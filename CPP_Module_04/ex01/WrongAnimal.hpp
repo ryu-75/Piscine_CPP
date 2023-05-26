@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 14:37:50 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 13:49:59 by nlorion          ###   ########.fr       */
+/*   Created: 2023/05/26 14:00:23 by nlorion           #+#    #+#             */
+/*   Updated: 2023/05/26 14:13:55 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONG_ANIMAL_HPP
+# define WRONG_ANIMAL_HPP
 
 #include <iostream>
 #include <string>
@@ -23,19 +23,19 @@
 #define BLUE "\e[36m"
 #define RED "\e[31m"
 
-class Animal
+class WrongAnimal
 {
 public:
-	Animal();
-	Animal(std::string type);
-	Animal(Animal const& copy);
-	Animal&	operator=(Animal const& copy);
+	WrongAnimal();
+	WrongAnimal(std::string type);
+	WrongAnimal(WrongAnimal const& copy);
+	WrongAnimal&	operator=(WrongAnimal const& copy);
+	void	makeSound(void) const;
 	void	setType(std::string type);
 	std::string	getType(void) const;
-	virtual void	makeSound(void) const;
-	virtual ~Animal();
+	~WrongAnimal();
 protected:
 	std::string	m_type;
 };
 
-#endif // #.............................. ANIMAL_HPP ..........................#
+#endif // #.............................. WRONG_ANIMAL_HPP .....................................#

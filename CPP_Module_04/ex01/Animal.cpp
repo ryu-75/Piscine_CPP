@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 14:26:30 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/26 15:19:27 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,12 @@ void	Animal::setType(std::string type)
 void	Animal::makeSound(void) const
 {
 	std::cout << BOLD << this->m_type << R << " said something" << std::endl;
+}
+
+std::ostream&	operator<<(std::ostream &flux, Animal const& obj)
+{
+	flux << obj.getType();
+	return (flux);
 }
 
 Animal::~Animal()

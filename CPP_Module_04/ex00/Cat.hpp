@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:45:42 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/25 15:58:20 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/26 13:57:37 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ public :
 	Cat(Cat const& copy);
 	Cat&	operator=(Cat const& copy);
 	void	makeSound(void) const;
-	void	display(void) const;
 	~Cat();
 };
 

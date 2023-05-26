@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:54:05 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 13:57:28 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/26 15:08:29 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Dog : public Animal
 {
@@ -26,6 +27,8 @@ public :
 	Dog&	operator=(Dog const& copy);
 	void	makeSound(void) const;
 	~Dog();
+private :
+	Brain	*m_brain;
 };
 
 #endif // #.......................... DOG_HPP ..............................#

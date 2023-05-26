@@ -24,7 +24,8 @@ SRC_FILES		= 	main.cpp		\
 					Cat.cpp			\
 					Dog.cpp			\
 					WrongAnimal.cpp	\
-					WrongCat.cpp
+					WrongCat.cpp	\
+					Brain.cpp
 
 # ................... OBJECT ..................................
 
@@ -47,7 +48,8 @@ $(EXEC)			: $(OBJS)
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Cat.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Dog.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)WrongCat.cpp$(_R)\n"
-					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)WrongAnimal.cpp$(_R)\n\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)WrongAnimal.cpp$(_R)\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Brain.cpp$(_R)\n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)

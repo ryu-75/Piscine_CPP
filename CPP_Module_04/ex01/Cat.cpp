@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:45:38 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 14:28:09 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/26 15:45:47 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ Cat::Cat() : Animal()
 {
 	std::cout << "Cat default constructor called" << std::endl;
 	this->m_type = BOLD BLUE "Cat" R;
+	this->m_brain = new Brain;
 }
 
 Cat::Cat(std::string type) : Animal(type)
 {
 	std::cout << "Cat overload constructor called" << std::endl;
 	this->m_type = BOLD BLUE + type + R;
+	this->m_brain = new Brain;
 }
 
 Cat::Cat(Cat const& copy) : Animal(copy)
@@ -45,4 +47,5 @@ void	Cat::makeSound(void) const
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
+	delete m_brain;
 }

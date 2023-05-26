@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:50 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 13:49:59 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/26 15:17:27 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ public:
 protected:
 	std::string	m_type;
 };
+
+std::ostream&	operator<<(std::ostream &flux, Animal const& obj);
 
 #endif // #.............................. ANIMAL_HPP ..........................#
