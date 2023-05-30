@@ -14,7 +14,7 @@ _MAGENTA  =\e[35m
 _CYAN     =\e[96m
 _WHITE    =\e[97m
 
-NAME		= Brain
+NAME		= Abstract
 EXEC		= $(NAME)
 
 # ................... CONTENT .................................

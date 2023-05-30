@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:45:42 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 14:55:35 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:59:43 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,23 @@
 class Cat : public Animal
 {
 public :
+	// Default constructor
 	Cat();
-	Cat(std::string type);
+	// Constructor copy
 	Cat(Cat const& copy);
+	// Assignment operator
 	Cat&	operator=(Cat const& copy);
-	void	makeSound(void) const;
+	// Destructor
 	~Cat();
+	// Methods
+	std::string	getType(void) const;
+	void	setIdeas(std::string str, int i);
+	void	getIdeas(int i) const;
+	void	makeSound(void) const;
+
+protected :
+	std::string	m_type;
+
 private :
 	Brain	*m_brain;
 };

@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:45:42 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/30 14:57:46 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:08:45 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,29 @@
 #include <iostream>
 #include <string>
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
 public :
 	// Default constructor
 	Cat();
-	// Overload constructor
-	Cat(std::string type);
 	// Constructor copy
 	Cat(Cat const& copy);
 	// Assignment operator
 	Cat&	operator=(Cat const& copy);
-	// Methods
-	void	makeSound(void) const;
 	// Destructor
 	~Cat();
+	std::string	getType(void) const;
+	void	setIdeas(std::string str, int i);
+	void	getIdeas(int i) const;
+	void	makeSound(void) const;
+
+protected :
+	std::string	m_type;
+
+private :
+	Brain	*m_brain;
 };
 
 #endif // #.......................... CAT_HPP ..............................#

@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:35 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 14:21:34 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/30 15:01:23 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 int	main(void)
 {
-	const Animal	*meta = new Animal;
-	const Animal	*myDog = new Dog;
-	const Animal	*myCat = new Cat;
+	const Animal	*meta = new Animal();
+	const Animal	*myDog = new Dog();
+	const Animal	*myCat = new Cat();
 	const WrongAnimal	*myWrongAnimal = new WrongCat();
 
 	std::cout << std::endl;

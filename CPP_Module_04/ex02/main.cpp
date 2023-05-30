@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:35 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/30 14:44:44 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:49:37 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ int	main(void)
 	std::cout << std::endl;
 	for (int i = 0; i < 4; i++)
 		delete myArray[i];
+	std::cout << std::endl;
 
 	std::cout << std::endl << BOLD << "[IDEAS TEST]" << R << std::endl << std::endl;
 
@@ -79,5 +80,8 @@ int	main(void)
 	c_2.setIdeas("I already eated", 0);
 	c_2.getIdeas(0);
 	std::cout << std::endl;
+
+	std::cout << "[NOT INSTANTIABLE]" << std::endl;
+
 	return (0);
 }

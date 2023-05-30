@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:00:23 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 14:13:55 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:58:36 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,19 @@
 class WrongAnimal
 {
 public:
+	// Default constructor
 	WrongAnimal();
+	// Overload constructor
 	WrongAnimal(std::string type);
+	// Constructor copy
 	WrongAnimal(WrongAnimal const& copy);
+	// Assignment operator
 	WrongAnimal&	operator=(WrongAnimal const& copy);
+	// Methods
 	void	makeSound(void) const;
 	void	setType(std::string type);
 	std::string	getType(void) const;
+	// Destructor
 	~WrongAnimal();
 protected:
 	std::string	m_type;

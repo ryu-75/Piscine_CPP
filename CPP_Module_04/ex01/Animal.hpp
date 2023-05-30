@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 14:37:50 by nlorion           #+#    #+#             */
-/*   Updated: 2023/05/26 15:17:27 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/05/30 14:59:24 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,23 @@
 class Animal
 {
 public:
+	// Default constructor
 	Animal();
+	// Overload constructor
 	Animal(std::string type);
+	// Constructor copy
 	Animal(Animal const& copy);
+	// Assignment operator
 	Animal&	operator=(Animal const& copy);
+	// Destructor
+	virtual ~Animal();
+	// Methods
 	void	setType(std::string type);
 	std::string	getType(void) const;
 	virtual void	makeSound(void) const;
-	virtual ~Animal();
+
 protected:
 	std::string	m_type;
 };
-
-std::ostream&	operator<<(std::ostream &flux, Animal const& obj);
 
 #endif // #.............................. ANIMAL_HPP ..........................#
