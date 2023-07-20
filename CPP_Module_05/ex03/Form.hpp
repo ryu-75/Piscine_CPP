@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:48 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:22:34 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 12:31:16 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class	Form;
 class Form
 {
 	public:
+		Form();
 		Form(const std::string &name, const int signGrade, const int execGrade);
 		Form	&operator=(Form const &copy);
 		Form(Form const &rhs);
@@ -68,12 +69,12 @@ class Form
 		};
 
 	private:
-		Form();
-		const std::string	&m_name;
+		const std::string	m_name;
 		bool	m_sign;
 		const int	m_signGrade;
 		const int	m_execGrade;
 };
 
 std::ostream&	operator<<(std::ostream &out, Form const &form);
+
 #endif // *************** FORM_HPP **********************

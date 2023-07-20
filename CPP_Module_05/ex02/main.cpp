@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/17 19:11:35 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 11:59:57 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(void)
 {
 	std::cout << "\e[33m\e[1m#FIRST MAIN\e[0m" << std::endl;
 	{
-		Bureaucrat	lorna("Lorna Dane", 145);
+		Bureaucrat	lorna("Lorna Dane", 136);
 		std::cout << lorna << std::endl;
 
 		Form	*trees = new ShrubberyCreationForm("Schrub", "Lorna");
@@ -27,9 +27,11 @@ int	main(void)
 		std::cout << *trees << std::endl;
 
 		trees->beSign(lorna);
+
+		std::cout << *trees << std::endl;
 		trees->execute(lorna);
 		std::cout << std::endl;
-		
+
 		delete trees;
 	}
 	std::cout << std::endl;

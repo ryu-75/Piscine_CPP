@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:44 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:43:12 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 12:40:33 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : Form("unknown", 145, 137), m_ta
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, const std::string &target) :
+ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) :
 	Form(name, 145, 137)
 {
 	std::cout << "ShrubberyCreationForm overload constructor called" << std::endl;

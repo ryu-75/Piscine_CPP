@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:48 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/14 16:07:11 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 12:43:33 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ class Form
 		};
 	private:
 		Form();
+		
 		const std::string	&m_name;
 		bool	m_sign;
 		const int	m_signGrade;

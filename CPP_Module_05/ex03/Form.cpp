@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:49 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 11:58:23 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 12:29:30 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "Bureaucrat.hpp"
 
 // ***************** CONSTRUCTOR / DECONSTRUCTOR ***********************
+
+Form::Form() : m_name("unknow"), m_signGrade(145), m_execGrade(145)
+{
+	std::cout << "Form default constructor called" << std::endl;
+	this->m_sign = false;
+}
 
 Form::Form(const std::string &name, const int signGrade, const int execGrade) :
 		m_name(name), m_signGrade(signGrade), m_execGrade(execGrade)
@@ -69,6 +75,8 @@ bool	Form::getSign(void) const
 	return (this->m_sign);
 }
 
+// ********************* METHODS *****************************
+
 void	Form::beSign(Bureaucrat const &bureaucrat)
 {
 	try
@@ -104,6 +112,8 @@ void	Form::execute(Bureaucrat const &bureaucrat) const
 		e.what();
 	}
 }
+
+// ********************* OPERATOR *****************************
 
 std::ostream&	operator<<(std::ostream &out, Form const &form)
 {

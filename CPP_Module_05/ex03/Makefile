@@ -17,7 +17,7 @@ _WHITE    =\e[97m
 NAME		= Bureaucrat
 EXEC		= $(NAME)
 
-# ................... CONTENT .................................
+# .................. CONTENT ..................................
 
 SRC_FILES		= 	main.cpp					\
 					Bureaucrat.cpp				\
@@ -25,13 +25,14 @@ SRC_FILES		= 	main.cpp					\
 					ShrubberyCreationForm.cpp	\
 					PresidentialPardonForm.cpp	\
 					RobotomyRequestForm.cpp		\
+					Intern.cpp
 
 
 # ................... OBJECT ..................................
 
 OBJ_DIR			= obj/
 OBJS			= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.cpp=%.o))
-$(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+$(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp Form.hpp Intern.hpp ShrubberyCreationForm.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp
 					@mkdir -p $(OBJ_DIR)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) -c $< -o $@
 
@@ -39,7 +40,7 @@ $(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp Robotom
 
 CPP				= c++
 CPP_FLAG		= -std=c++98
-FLAGS			= -Wall -Wextra -Werror #-g
+FLAGS			= -Wall -Wextra -Werror -g
 $(EXEC)			: $(OBJS)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) $(OBJS) -o $(EXEC)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
@@ -48,7 +49,8 @@ $(EXEC)			: $(OBJS)
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Form.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)ShrubberyCreationForm.cpp$(_R)\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)PresidentialPardonForm.cpp$(_R)\n"
-					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)RobotomyRequestForm.cpp$(_R)\n\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)RobotomyRequestForm.cpp$(_R)\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Intern.cpp$(_R)\n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)

@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:42:47 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 12:30:31 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 // ***************** CONSTRUCTOR / DECONSTRUCTOR ***********************
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, const std::string &target) :
+RobotomyRequestForm::RobotomyRequestForm() : Form("unknown", 72, 45), m_target("David Haller")
+{
+	std::cout << "RobotomyRequestForm default constructor called" << std::endl;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) :
 	Form(name, 72, 45), m_target(target)
 {
 	std::cout << "RobotomyRequestForm overload constructor called" << std::endl;

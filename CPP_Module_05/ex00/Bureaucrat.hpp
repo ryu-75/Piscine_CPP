@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:48:36 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/17 14:02:55 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/18 12:43:40 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class	Bureaucrat
 		};
 	private:
 		Bureaucrat();
+		
 		const std::string	m_name;
 		int					m_grade;
 };
