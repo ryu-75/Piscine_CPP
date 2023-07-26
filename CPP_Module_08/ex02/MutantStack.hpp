@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 12:09:29 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/26 14:43:19 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/26 17:30:17 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,46 +15,43 @@
 
 #include <stack>
 #include <iostream>
-#include <string>
-#include <iterator>
+#include <algorithm>
 
-template	<typename T, typename Container = std::deque<T>>
-class	MutantStack : public std::stack<T, Container>
+template	<typename T>
+class	MutantStack : public std::stack<T>
 {
 	public:
-		typedef typename std::stack<T>::container_type::iterator	iterator;
 		MutantStack()
 		{
 			std::cout << "MutantStack default constructor called" << std::endl;
-		}
+		};
 
-		MutantStack(const MutantStack &rhs)
+		MutantStack(const MutantStack &copy)
 		{
-		}
+			std::cout << "MutantStack copy constructor called" << std::endl;
+			*this = copy;
+		};
 
-		~MutantStack()
+		virtual ~MutantStack()
 		{
 			std::cout << "MutantStack destructor called" << std::endl;
-		}
+		};
 
 		MutantStack&	operator=(const MutantStack &copy)
 		{
-			std::cout << "MutantStack copy constructor called" << std::endl;
-			this->_c = copy._c;
-			return (*this);
-		}
+			*this = &copy;
+		};
 
-		iterator	push(void)
+		typedef typename std::deque<T>::iterator	iterator;
+		iterator	begin(void)
 		{
-			return (this->c.push());
-		}
+			return (this->c.begin());
+		};
 
-		iterator	pop(void)
+		iterator	end(void)
 		{
-			return (this->c.pop());
-		}
-	private:
-		std::deque<int>	_c;
+			return (this->c.end());
+		};
 };
 
 #endif // ************************** MUTANTSTACK_HPP **************************
