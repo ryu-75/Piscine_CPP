@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 11:50:24 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/28 15:49:38 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/28 16:54:54 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ bool	Btc::checkContent(std::string file) const
 {
 	const char	*tmp = file.c_str();
 
-	if (!isdigit(*tmp) && atol(tmp) < 2009 && atol(tmp) > 2022 &&\
-		atol(tmp + 5) < 1 && atol(tmp + 5) > 31 &&\
-			atol(tmp + 8) < 1 && atol(tmp + 8) > 12)
-			{
-				// Throw exception if false
-				std::cout << "Date format is not good" << std::endl;
-				return (false);
-			}
+	if ((atol(tmp) < 2009 || atol(tmp) > 2022) ||\
+			(atol(tmp + 5) < 1 || atol(tmp + 5) > 12) ||\
+				(atol(tmp + 8) < 1 || atol(tmp + 8) > 31))
+				{
+					// Throw exception if false
+					std::cout << "Date format is not good" << std::endl;
+					return (false);
+				}
 	return (true);
 }
 
@@ -64,15 +64,16 @@ void	Btc::parseFiles(char *av)
 		{
 			int	i = 0;
 			getline(file, tmp);
-			while (!isdigit(tmp[i]))
+			while (isalpha(tmp[i]) || tmp[i] == ',' || tmp[i] == '_')
 				i++;
 			while (tmp[i])
 			{
 				if (checkContent(tmp) == false)
 					exit (1);
+				news = tmp;
 				i++;
 			}
 		}
-
+		std::cout << news << std::endl;
 	}
 }
