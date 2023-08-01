@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 14:19:48 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/28 15:15:32 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 12:50:25 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,40 @@
 #include <iostream>
 #include <algorithm>
 #include <fstream>
-#include <string>
-#include <cstring>
 
 class	Btc
 {
 	public :
-		Btc(void);
+
+		typedef std::map<std::string, float>::iterator	map_iterator;
+
+		Btc();
+		Btc(std::string inputName);
 		Btc(const Btc &copy);
-		void	parseFiles(char *av);
-		bool	checkContent(std::string file) const;
-		Btc&	operator=(const Btc &rhs);
 		~Btc();
+		
+		Btc&	operator=(const Btc &rhs);
+		
+		void	parseFiles(void);
+		void	parsInput(std::string str);
+		void	doExchange(std::string line);
+		bool	checkContent(std::string file) const;
+		bool	parsValue(std::string value);
+		
+		Btc::map_iterator	nearestKey(std::string& key);
+		class	ExceptionBtc
+		{
+			public:
+					ExceptionBtc(const std::string &message) : _message(message) {}
+			const char*	what() const;
+			private:
+				const std::string	_message;
+		};
+		
 	private :
-		std::map<std::string, int>	_btcMap;
+		std::map<std::string, float>	_btcMap;
+		std::string	_inputName;
 };
 
 #endif // ******************** BITCOIN_EXCHANGE_HPP ********************
+	

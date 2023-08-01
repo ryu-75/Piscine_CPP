@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:48 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:31:16 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 13:56:58 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include <string>
-class	Form;
+class	AForm;
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 	public:
-		Form();
-		Form(const std::string &name, const int signGrade, const int execGrade);
-		Form	&operator=(Form const &copy);
-		Form(Form const &rhs);
-		virtual ~Form();
+		AForm();
+		AForm(const std::string &name, const int signGrade, const int execGrade);
+		AForm	&operator=(AForm const &copy);
+		AForm(AForm const &rhs);
+		virtual ~AForm();
 
 		std::string const	&getName(void) const;
 		int	getSignGrade(void) const;
@@ -75,6 +75,6 @@ class Form
 		const int	m_execGrade;
 };
 
-std::ostream&	operator<<(std::ostream &out, Form const &form);
+std::ostream&	operator<<(std::ostream &out, AForm const &form);
 
-#endif // *************** FORM_HPP **********************
+#endif // *************** AFORM_HPP **********************

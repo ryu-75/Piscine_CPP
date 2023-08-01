@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 11:59:57 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 12:59:30 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 		Bureaucrat	lorna("Lorna Dane", 136);
 		std::cout << lorna << std::endl;
 
-		Form	*trees = new ShrubberyCreationForm("Schrub", "Lorna");
+		AForm	*trees = new ShrubberyCreationForm("Schrub", "Lorna");
 		std::cout << std::endl;
 		std::cout << *trees << std::endl;
 
@@ -40,7 +40,7 @@ int	main(void)
 		Bureaucrat	scott("Scott Summer", 5);
 		std::cout << scott << std::endl;
 
-		Form	*forgiven = new PresidentialPardonForm("So Sorry !", "Scott");
+		AForm	*forgiven = new PresidentialPardonForm("So Sorry !", "Scott");
 		std::cout << std::endl;
 		std::cout << *forgiven << std::endl;
 
@@ -56,7 +56,7 @@ int	main(void)
 		Bureaucrat	jean("Jean Grey", 44);
 		std::cout << jean << std::endl;
 
-		Form	*robot = new RobotomyRequestForm("robot", "Jean");
+		AForm	*robot = new RobotomyRequestForm("robot", "Jean");
 		std::cout << std::endl;
 		std::cout << *robot << std::endl;
 

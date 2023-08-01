@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:48:36 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:43:40 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/07/31 14:23:25 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <iostream>
 #include <string>
-#include "Form.hpp"
 
 class	Bureaucrat
 {

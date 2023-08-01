@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:48:36 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/17 18:11:16 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 12:57:56 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include <string>
 class	Bureaucrat;
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class	Bureaucrat
 {
@@ -29,7 +29,7 @@ class	Bureaucrat
 		int	getGrade(void) const;
 		void	toDecrement(void);
 		void	toIncrement(void);
-		void	signForm(Form &form) const;
+		void	signForm(AForm &form) const;
 		
 		class	GradeTooHighException
 		{

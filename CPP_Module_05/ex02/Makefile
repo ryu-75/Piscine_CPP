@@ -21,7 +21,7 @@ EXEC		= $(NAME)
 
 SRC_FILES		= 	main.cpp					\
 					Bureaucrat.cpp				\
-					Form.cpp					\
+					AForm.cpp					\
 					ShrubberyCreationForm.cpp	\
 					PresidentialPardonForm.cpp	\
 					RobotomyRequestForm.cpp		\
@@ -31,7 +31,7 @@ SRC_FILES		= 	main.cpp					\
 
 OBJ_DIR			= obj/
 OBJS			= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.cpp=%.o))
-$(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+$(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 					@mkdir -p $(OBJ_DIR)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) -c $< -o $@
 

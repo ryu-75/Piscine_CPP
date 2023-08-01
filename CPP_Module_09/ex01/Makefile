@@ -14,19 +14,19 @@ _MAGENTA  =\e[35m
 _CYAN     =\e[96m
 _WHITE    =\e[97m
 
-NAME		= Bureaucrat
+NAME		= RPN
 EXEC		= $(NAME)
 
 # ................... CONTENT .................................
 
-SRC_FILES		= 	main.cpp		\
-					Bureaucrat.cpp	\
+SRC_FILES		= 	main.cpp	\
+					RPN.cpp
 
 # ................... OBJECT ..................................
 
 OBJ_DIR			= obj/
 OBJS			= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.cpp=%.o))
-$(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp
+$(OBJ_DIR)%.o	: 	%.cpp RPN.hpp
 					@mkdir -p $(OBJ_DIR)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) -c $< -o $@
 

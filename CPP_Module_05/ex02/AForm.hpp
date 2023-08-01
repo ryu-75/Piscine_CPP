@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:48 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:22:34 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 12:54:50 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 #include <iostream>
 #include <string>
-class	Form;
+class	AForm;
 #include "Bureaucrat.hpp"
 
-class Form
+class AForm
 {
 	public:
-		Form(const std::string &name, const int signGrade, const int execGrade);
-		Form	&operator=(Form const &copy);
-		Form(Form const &rhs);
-		virtual ~Form();
+		AForm(const std::string &name, const int signGrade, const int execGrade);
+		AForm	&operator=(AForm const &copy);
+		AForm(AForm const &rhs);
+		virtual ~AForm();
 
 		std::string const	&getName(void) const;
 		int	getSignGrade(void) const;
@@ -68,12 +68,13 @@ class Form
 		};
 
 	private:
-		Form();
+		AForm();
 		const std::string	&m_name;
 		bool	m_sign;
 		const int	m_signGrade;
 		const int	m_execGrade;
 };
 
-std::ostream&	operator<<(std::ostream &out, Form const &form);
-#endif // *************** FORM_HPP **********************
+std::ostream&	operator<<(std::ostream &out, AForm const &form);
+
+#endif // *************** AFORM_HPP **********************

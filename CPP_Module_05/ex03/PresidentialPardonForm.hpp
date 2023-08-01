@@ -6,16 +6,16 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:48 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:27:19 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 13:59:16 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
-# define PRESIDENTILPARDONFORM_HPP
+# define PRESIDENTIALPARDONFORM_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class PresidentialPardonForm : public Form
+class PresidentialPardonForm : public AForm
 {
 	public:
 		PresidentialPardonForm();

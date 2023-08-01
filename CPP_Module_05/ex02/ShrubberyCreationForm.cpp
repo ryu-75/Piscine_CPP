@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:44 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:43:12 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 13:06:38 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,19 @@
 
 // ***************** CONSTRUCTOR / DECONSTRUCTOR ***********************
 
-ShrubberyCreationForm::ShrubberyCreationForm() : Form("unknown", 145, 137), m_target("David Haller")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("unknown", 145, 137), m_target("David Haller")
 {
 	std::cout << "ShrubberyCreationForm default constructor called" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string name, const std::string &target) :
-	Form(name, 145, 137)
+	AForm(name, 145, 137)
 {
 	std::cout << "ShrubberyCreationForm overload constructor called" << std::endl;
 	this->m_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : Form(copy)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy) : AForm(copy)
 {
 	std::cout << "ShrubberyCreationForm constructor copy called" << std::endl;
 	this->m_target = copy.m_target;

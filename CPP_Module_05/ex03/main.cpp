@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:40:20 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:01:42 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 
 		Intern	randomFiles;
 
-		Form	*rff;
+		AForm	*rff;
 		std::cout << std::endl;
 		rff = randomFiles.makeForm("robotomy request", "Emma");
 		if (rff)
@@ -42,7 +42,7 @@ int	main(void)
 
 		Intern	roberto;
 
-		Form	*krakoa;
+		AForm	*krakoa;
 		std::cout << std::endl;
 		krakoa = roberto.makeForm("presidential pardon", "Emma");
 		if (krakoa)
@@ -63,7 +63,7 @@ int	main(void)
 
 		Intern	mystic;
 
-		Form	*magna;
+		AForm	*magna;
 		std::cout << std::endl;
 		magna = mystic.makeForm("shrubbery creation", "Charles Xavier");
 		if (magna)

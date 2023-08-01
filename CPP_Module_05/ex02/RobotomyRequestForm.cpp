@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:42:47 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 13:06:59 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // ***************** CONSTRUCTOR / DECONSTRUCTOR ***********************
 
 RobotomyRequestForm::RobotomyRequestForm(std::string name, const std::string &target) :
-	Form(name, 72, 45), m_target(target)
+	AForm(name, 72, 45), m_target(target)
 {
 	std::cout << "RobotomyRequestForm overload constructor called" << std::endl;
 }
@@ -26,7 +26,7 @@ RobotomyRequestForm&	RobotomyRequestForm::operator=(RobotomyRequestForm const &r
 	return (*this);
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : Form(copy)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy) : AForm(copy)
 {
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 	this->m_target = copy.m_target;

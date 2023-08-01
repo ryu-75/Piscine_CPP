@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:00:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:28:51 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 13:58:26 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Intern::~Intern()
 
 // ********************* METHOD *****************************
 
-Form*	Intern::makeForm(std::string formName, std::string target)
+AForm*	Intern::makeForm(std::string formName, std::string target)
 {
 	int	i = 0;
 

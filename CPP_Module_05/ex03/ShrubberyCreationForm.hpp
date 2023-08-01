@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:45 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/18 12:03:56 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/01 14:00:07 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define SHRUBBERYCREATIONFORM_HPP
 
 #include <cstdlib>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class ShrubberyCreationForm : public Form
+class ShrubberyCreationForm : public AForm
 {
 	public:
 		ShrubberyCreationForm();

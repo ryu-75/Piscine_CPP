@@ -34,7 +34,7 @@ $(OBJ_DIR)%.o	: 	%.cpp BitcoinExchange.hpp
 
 CPP				= c++
 CPP_FLAG		= -std=c++98
-FLAGS			= -Wall -Wextra -Werror #-g
+FLAGS			= -Wall -Wextra -Werror -g
 $(EXEC)			: $(OBJS)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) $(OBJS) -o $(EXEC)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
