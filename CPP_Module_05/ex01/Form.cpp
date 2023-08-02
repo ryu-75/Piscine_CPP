@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:49 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/14 17:57:10 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 19:29:13 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,35 @@ Form::Form(const std::string &name, const int signGrade, const int execGrade) :
 		m_name(name), m_sign(false), m_signGrade(signGrade), m_execGrade(execGrade)
 {
 	std::cout << "Form overload constructor called" << std::endl;
-	if (signGrade < 1 || execGrade < 1)
-		throw Form::GradeTooHighException();
-	else if (signGrade > 150 || execGrade > 150)
-		throw Form::GradeTooLowException();
+	try
+	{
+		if (signGrade < 1 || execGrade < 1)
+			throw Form::GradeTooHighException();
+		else if (signGrade > 150 || execGrade > 150)
+			throw Form::GradeTooLowException();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 Form::Form(Form const &rhs) :
 		m_name(rhs.m_name), m_sign(rhs.m_sign), m_signGrade(rhs.m_signGrade), m_execGrade(rhs.m_execGrade)
 {
 	std::cout << "Form constructor copy called" << std::endl;
-	if (this->m_signGrade < 1 || this->m_execGrade < 1)
-		throw Form::GradeTooHighException();
-	else if (this->m_signGrade > 150 || this->m_execGrade > 150)
-		throw Form::GradeTooLowException();
+	try
+	{
+		if (this->m_signGrade < 1 || this->m_execGrade < 1)
+			throw Form::GradeTooHighException();
+		else if (this->m_signGrade > 150 || this->m_execGrade > 150)
+			throw Form::GradeTooLowException();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	
 }
 
 Form	&Form::operator=(Form const &copy)

@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/17 12:07:32 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 19:51:23 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	main(void)
 		std::cout << std::endl;
 		std::cout << "\e[33m\e[1m#SECOND MAIN\e[0m" << std::endl;
 	{
-		Bureaucrat	scott("Scott Summer", 1);
-		Form	topSecret("Top secret", 1, 5);
+		Bureaucrat	scott("Scott Summer", 0);
+		Form	topSecret("Top secret", 0, 5);
 
 		std::cout << std::endl;
 		std::cout << "👱  " << scott << std::endl;

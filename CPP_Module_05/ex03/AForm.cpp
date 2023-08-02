@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:49 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 13:56:24 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 20:29:50 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 AForm::AForm() : m_name("unknow"), m_signGrade(145), m_execGrade(145)
 {
 	std::cout << "AForm default constructor called" << std::endl;
-	this->m_sign = false;
+	m_sign = false;
 }
 
 AForm::AForm(const std::string &name, const int signGrade, const int execGrade) :
@@ -26,20 +26,34 @@ AForm::AForm(const std::string &name, const int signGrade, const int execGrade) 
 {
 	std::cout << "AForm overload constructor called" << std::endl;
 	this->m_sign = false;
-	if (signGrade < 1 || execGrade < 1)
-		throw AForm::GradeTooHighException();
-	else if (signGrade > 150 || execGrade > 150)
-		throw AForm::GradeTooLowException();
+	try
+	{
+		if (signGrade < 1 || execGrade < 1)
+			throw AForm::GradeTooHighException();
+		else if (signGrade > 150 || execGrade > 150)
+			throw AForm::GradeTooLowException();	
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
 }
 
 AForm::AForm(AForm const &rhs) :
 		m_name(rhs.m_name), m_sign(rhs.m_sign), m_signGrade(rhs.m_signGrade), m_execGrade(rhs.m_execGrade)
 {
 	std::cout << "AForm constructor copy called" << std::endl;
-	if (this->m_signGrade < 1 || this->m_execGrade < 1)
-		throw AForm::GradeTooHighException();
-	else if (this->m_signGrade > 150 || this->m_execGrade > 150)
-		throw AForm::GradeTooLowException();
+	try
+	{
+		if (this->m_signGrade < 1 || this->m_execGrade < 1)
+			throw AForm::GradeTooHighException();
+		else if (this->m_signGrade > 150 || this->m_execGrade > 150)
+			throw AForm::GradeTooLowException();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 AForm	&AForm::operator=(AForm const &copy)
@@ -81,12 +95,14 @@ void	AForm::beSign(Bureaucrat const &bureaucrat)
 {
 	try
 	{
-		if (bureaucrat.getGrade() <= this->m_signGrade)
+		if (bureaucrat.getGrade() != 0 && \
+			bureaucrat.getGrade() <= this->m_signGrade)
 			this->m_sign = true;
-		else if (bureaucrat.getGrade() > this->m_signGrade)
-			throw AForm::GradeTooLowException();
-		else
+		else if (bureaucrat.getGrade() < this->m_signGrade || \
+			bureaucrat.getGrade() <= 0)
 			throw AForm::GradeTooHighException();
+		else
+			throw AForm::GradeTooLowException();
 	}
 	catch(AForm::GradeTooHighException &e)
 	{

@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 10:09:00 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/12 13:31:41 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 19:21:01 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,30 +46,16 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << "\e[33m\e[1m# THIRD MAIN #\e[0m" << std::endl;
 	{
-		try
-		{
-			Bureaucrat	pietro("Pietro Maximoff", 0);
-			std::cout << std::endl;
-			std::cout << pietro << std::endl;
-		}
-		catch (const std::exception &e)
-		{
-			std::cerr << e.what();
-		}
+		Bureaucrat	pietro("Pietro Maximoff", 0);
+		std::cout << std::endl;
+		std::cout << pietro << std::endl;
 	}
 	std::cout << std::endl;
 	std::cout << "\e[33m\e[1m# FOURTH MAIN #\e[0m" << std::endl;
 	{
-		try
-		{
-			Bureaucrat	jean("Jean Grey", 151);
-			std::cout << std::endl;
-			std::cout << jean << std::endl;
-		}
-		catch(const std::exception &e)
-		{
-			std::cerr << e.what();
-		}
+		Bureaucrat	jean("Jean Grey", 151);
+		std::cout << std::endl;
+		std::cout << jean << std::endl;
 	}
 	return (0);
 }

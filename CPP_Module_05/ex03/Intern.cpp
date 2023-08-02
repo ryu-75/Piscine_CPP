@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 10:00:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 13:58:26 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 20:05:59 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,7 @@ Intern&	Intern::operator=(Intern const &rhs)
 {
 	if (this != &rhs)
 		return (*this);
-	else
-		return (*this);
+	return (*this);
 }
 
 Intern::~Intern()

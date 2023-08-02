@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:51:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/13 10:40:47 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 19:20:17 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,33 @@
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : m_name(name), m_grade(grade)
 {
 	std::cout << "Bureaucrat overload constructor called" << std::endl;
-	if (grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+	try
+	{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();	
+	}
+	catch(const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) : m_name(copy.m_name), m_grade(copy.m_grade)
 {
 	std::cout << "Bureaucrat constructor copy called" << std::endl;
-	if (this->m_grade < 1)
-		throw Bureaucrat::GradeTooHighException();
-	else if (this->m_grade > 150)
-		throw Bureaucrat::GradeTooLowException();
+	try
+	{
+		if (this->m_grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (this->m_grade > 150)
+			throw Bureaucrat::GradeTooLowException();		
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 Bureaucrat&	Bureaucrat::operator=(Bureaucrat const& rhs)

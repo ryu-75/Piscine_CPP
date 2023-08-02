@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:49 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 12:55:40 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 20:33:54 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,35 @@ AForm::AForm(const std::string &name, const int signGrade, const int execGrade) 
 		m_name(name), m_signGrade(signGrade), m_execGrade(execGrade)
 {
 	std::cout << "AForm overload constructor called" << std::endl;
-	this->m_sign = false;
-	if (signGrade < 1 || execGrade < 1)
-		throw AForm::GradeTooHighException();
-	else if (signGrade > 150 || execGrade > 150)
-		throw AForm::GradeTooLowException();
+	m_sign = false;
+	try
+	{
+		if (signGrade < 1 || execGrade < 1)
+			throw AForm::GradeTooHighException();
+		else if (signGrade > 150 || execGrade > 150)
+			throw AForm::GradeTooLowException();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}	
 }
 
 AForm::AForm(AForm const &rhs) :
 		m_name(rhs.m_name), m_sign(rhs.m_sign), m_signGrade(rhs.m_signGrade), m_execGrade(rhs.m_execGrade)
 {
 	std::cout << "AForm constructor copy called" << std::endl;
+	try
+	{
 	if (this->m_signGrade < 1 || this->m_execGrade < 1)
 		throw AForm::GradeTooHighException();
 	else if (this->m_signGrade > 150 || this->m_execGrade > 150)
 		throw AForm::GradeTooLowException();
+	}
+	catch (const std::exception & e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 AForm	&AForm::operator=(AForm const &copy)

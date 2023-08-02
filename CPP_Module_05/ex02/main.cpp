@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 12:59:30 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 19:57:01 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,8 @@ int	main(void)
 
 		trees->beSign(lorna);
 
-		std::cout << *trees << std::endl;
+		std::cout << *trees;
 		trees->execute(lorna);
-		std::cout << std::endl;
 
 		delete trees;
 	}

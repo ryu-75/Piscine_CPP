@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 13:59:34 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 20:29:14 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,9 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::execForm(void) const
 {
 	std::cout << "🤖 VRRRRvrrrVRRRRRRvrrrVRRRRR" << std::endl;
+	srand(time(NULL));
 	if (std::rand() % 2 == 1)
 		std::cout << this->m_target << " was succesfully robotomised." << std::endl;
 	else
-		std::cout << "Robotomy of " << this->m_target << " failed... Sorry my dear." << std::endl;
+		std::cout << "Robotomy failed " << this->m_target << "... Sorry my dear." << std::endl;
 }

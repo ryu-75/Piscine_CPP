@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 14:01:42 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/02 20:27:54 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(void)
 {
 	std::cout << "\e[33m\e[1m#FIRST MAIN\e[0m" << std::endl;
 	{
-		Bureaucrat	emma("Emma Frost", 5);
+		Bureaucrat	emma("Emma Frost", 1);
 		std::cout << emma << std::endl;
 
 		Intern	randomFiles;
@@ -28,6 +28,7 @@ int	main(void)
 		{
 			std::cout << *rff << std::endl;
 			rff->beSign(emma);
+			rff->execute(emma);
 			std::cout << *rff << std::endl;
 			emma.signForm(*rff);
 			std::cout << std::endl;
