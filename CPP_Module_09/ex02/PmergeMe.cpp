@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:02 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/03 13:05:10 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 15:17:32 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,15 @@ PmergeMe::~PmergeMe()
 	std::cout << "Destructor called" << std::endl;
 }
 
-void	PmergeMe::parseValue(std::string str)
+void	PmergeMe::parseValue(char **av, int ac)
 {
-	std::vector<int>	tmp;
+	int	res = 0;
 
-	std::cout << str.size() << std::endl;
-	for (size_t i = 1; i < str.size(); i++)
+	for (int i = 1; i <= ac; i++)
 	{
-		std::cout << str[i] << std::endl;
-		// const char*	s_tmp = str.c_str();
-		// int	val = atoi(s_tmp);
-		// tmp.push_back(val);
+		if (av[i] && isdigit(*av[i]) && *av[i] != '-')
+			res = atoi(av[i]);
+		this->_stackValue.push_back(res);
+		std::cout << this->_stackValue[i] << std::endl;
 	}
 }

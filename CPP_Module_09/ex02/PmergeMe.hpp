@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/03 12:55:49 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 15:14:27 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class PmergeMe
 
 		PmergeMe&	operator=(const PmergeMe &copy);
 
-		void	parseValue(std::string str);
+		void	parseValue(char **av, int ac);
 
 		int	_destination;
 		int	_weight;
