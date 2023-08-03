@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/03 15:14:27 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 19:40:53 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PMERGEME_HPP
 
 #include <iostream>
+#include <ostream>
 #include <cstring>
 #include <string>
 #include <vector>
@@ -31,6 +32,16 @@ class PmergeMe
 		PmergeMe&	operator=(const PmergeMe &copy);
 
 		void	parseValue(char **av, int ac);
+		void	displayUnsorted(void) const;
+
+		class ExceptionNegVal
+		{
+			public: 
+				ExceptionNegVal(const std::string &msg) : _message(msg) {}
+ 			const char* what() const;
+			private:
+				std::string	_message;
+		};
 
 		int	_destination;
 		int	_weight;
@@ -40,6 +51,8 @@ class PmergeMe
 		// std::list<int<Matrix>>	_adjacencyList;
 		std::vector<int>	_stackValue;
 };
+
+std::ostream&	operator<<(std::ostream &flux, const PmergeMe &input);
 
 
 #endif // ************************* PMERGEME_HPP *************************
