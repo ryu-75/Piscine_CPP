@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 18:15:46 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 13:06:59 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 11:37:38 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 void	RobotomyRequestForm::execForm(void) const
 {
 	std::cout << "🤖 VRRRRvrrrVRRRRRRvrrrVRRRRR" << std::endl;
+	srand(time(NULL));
 	if (std::rand() % 2 == 1)
 		std::cout << this->m_target << " was succesfully robotomised." << std::endl;
 	else

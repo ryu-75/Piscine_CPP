@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/02 20:27:54 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 11:53:08 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,18 @@ int	main(void)
 
 		Intern	mystic;
 
-		AForm	*magna;
+		AForm	*magda;
 		std::cout << std::endl;
-		magna = mystic.makeForm("shrubbery creation", "Charles Xavier");
-		if (magna)
+		magda = mystic.makeForm("shrubbery creation", "Charles Xavier");
+		if (magda)
 		{
-			std::cout << *magna << std::endl;
-			magna->beSign(professorX);
-			magna->execute(professorX);
-			std::cout << *magna << std::endl;
-			professorX.signForm(*magna);
+			std::cout << *magda << std::endl;
+			magda->beSign(professorX);
+			magda->execute(professorX);
+			std::cout << *magda << std::endl;
+			professorX.signForm(*magda);
 			std::cout << std::endl;
-			delete magna;
+			delete magda;
 		}
 	}
 	return (0);

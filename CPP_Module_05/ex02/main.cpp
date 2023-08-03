@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 16:04:39 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/02 19:57:01 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 11:49:54 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	main(void)
 	std::cout << std::endl;
 	std::cout << "\e[33m\e[1m#THREE MAIN\e[0m" << std::endl;
 	{
-		Bureaucrat	jean("Jean Grey", 44);
+		Bureaucrat	jean("Jean Grey", 1);
 		std::cout << jean << std::endl;
 
 		AForm	*robot = new RobotomyRequestForm("robot", "Jean");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 09:51:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/02 20:26:53 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 11:52:04 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : m_name(name), m_gra
 {
 	std::cout << "Bureaucrat overload constructor called" << std::endl;
 	try
-	{		
+	{
 		if (grade < 1)
 			throw Bureaucrat::GradeTooHighException();
 	}
@@ -32,7 +32,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : m_name(name), m_gra
 		e.what();
 	}
 	try
-	{		
+	{
 		if (grade > 150)
 			throw Bureaucrat::GradeTooLowException();
 	}
@@ -46,7 +46,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) : m_name(copy.m_name), m_grade(co
 {
 	std::cout << "Bureaucrat constructor copy called" << std::endl;
 	try
-	{		
+	{
 		if (this->m_grade < 1)
 			throw Bureaucrat::GradeTooHighException();
 	}
@@ -55,7 +55,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const &copy) : m_name(copy.m_name), m_grade(co
 		e.what();
 	}
 	try
-	{		
+	{
 		if (this->m_grade > 150)
 			throw Bureaucrat::GradeTooLowException();
 	}
@@ -123,9 +123,9 @@ void	Bureaucrat::signForm(AForm &form) const
 	if (form.getSign())
 		std::cout << "➡️  " << this->getName() << " cannot sign \e[34m\e[1m" << form.getName() << "\e[0m because the form is already signed." << std::endl;
 	else if (this->getGrade() > form.getSignGrade())
-		std::cout << "➡️  " << this->getName() << " cannot sign \e[34m\e[1m" << form.getName() << "\e[0m because it's grade is too low." << std::endl;
-	else if (this->getGrade() < 1)
-		std::cout << "➡️  " << this->getName() << " cannot sign \e[34m\e[1m" << form.getName() << "\e[0m because it's grade is too high." << std::endl;
+		std::cout << "➡️  " << this->getName() << " cannot sign \e[34m\e[1m" << form.getName() << "\e[0m because grade is too low." << std::endl;
+	else if (this->getGrade() <= 0)
+		std::cout << "➡️  " << this->getName() << " cannot sign \e[34m\e[1m" << form.getName() << "\e[0m because grade is too high." << std::endl;
 	else
 		std::cout << "➡️  " << this->getName() << " signed \e[34m\e[1m" << form.getName() << "\e[0m"  << std::endl;
 	form.beSign(*this);

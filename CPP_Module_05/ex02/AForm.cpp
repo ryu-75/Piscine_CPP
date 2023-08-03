@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 12:03:49 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/02 20:33:54 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/03 11:45:30 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ AForm::AForm(const std::string &name, const int signGrade, const int execGrade) 
 	catch (const std::exception & e)
 	{
 		std::cerr << e.what() << '\n';
-	}	
+	}
 }
 
 AForm::AForm(AForm const &rhs) :
@@ -87,11 +87,11 @@ void	AForm::beSign(Bureaucrat const &bureaucrat)
 {
 	try
 	{
-		if (bureaucrat.getGrade() <= this->m_signGrade)
+		if (bureaucrat.getGrade() > 0 && bureaucrat.getGrade() <= this->m_signGrade)
 			this->m_sign = true;
 		else if (bureaucrat.getGrade() > this->m_signGrade)
 			throw AForm::GradeTooLowException();
-		else
+		else if (bureaucrat.getGrade() <= 0)
 			throw AForm::GradeTooHighException();
 	}
 	catch(AForm::GradeTooHighException &e)
@@ -108,7 +108,8 @@ void	AForm::execute(Bureaucrat const &bureaucrat) const
 {
 	try
 	{
-		if (bureaucrat.getGrade() <= this->getExecGrade() && this->getSign() == true)
+		if (bureaucrat.getGrade() <= this->getExecGrade() && \
+			this->getSign() == true && bureaucrat.getGrade() != 0)
 			execForm();
 		else
 			throw AForm::UnsignedFormExec();
