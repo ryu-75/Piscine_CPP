@@ -14,19 +14,19 @@ _MAGENTA  =\e[35m
 _CYAN     =\e[96m
 _WHITE    =\e[97m
 
-NAME		= Bureaucrat
+NAME		= PmergeMe
 EXEC		= $(NAME)
 
 # ................... CONTENT .................................
 
 SRC_FILES		= 	main.cpp		\
-					Bureaucrat.cpp	\
+					PmergeMe.cpp	\
 
 # ................... OBJECT ..................................
 
 OBJ_DIR			= obj/
 OBJS			= $(addprefix $(OBJ_DIR), $(SRC_FILES:%.cpp=%.o))
-$(OBJ_DIR)%.o	: 	%.cpp Bureaucrat.hpp
+$(OBJ_DIR)%.o	: 	%.cpp PmergeMe.hpp
 					@mkdir -p $(OBJ_DIR)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) -c $< -o $@
 
@@ -39,7 +39,7 @@ $(EXEC)			: $(OBJS)
 					@$(CPP) $(CPP_FLAG) $(FLAGS) $(OBJS) -o $(EXEC)
 					@printf "$(_RED)$(_BOLD)Compiled : $(_WHITE)$(EXEC)$(_R)\n\n"
 					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)main.cpp$(_R)\n"
-					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)Bureaucrat.cpp$(_R)\n\n"
+					@printf "$(CPP) $(_BOLD)$(_GREEN)$(CPP_FLAG) $(_BLUE)$(FLAGS) $(_WHITE)PmergeMe.cpp$(_R)\n\n"
 					@printf "$(_BOLD)$(_GREEN)................. Compilation succed .................$(_R)\n\n"
 
 all				: $(EXEC)
