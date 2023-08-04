@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:44:41 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/20 15:28:12 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:50:04 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,28 @@ int	main(void)
 		std::swap(pi, e);
 		std::cout << "pi = " << pi << std::endl;
 		std::cout << "e = " << e << std::endl;
+	}
+		std::cout << std::endl;
+		std::cout << "\e[33m\e[1m#3d MAIN\e[0m" << std::endl;
+	{
+		char a = 'a';
+		char b = 'b';
+
+		std::cout << "a = " << a << std::endl;
+		std::cout << "b = " << b << std::endl;
+		std::cout << "***********************" << std::endl;
+		std::cout << "CHAR :" << std::endl;
+		std::cout << "max( a, b ) = " << std::max(a, b) << std::endl;
+		std::cout << "min( a, b ) = " << std::min(a, b) << std::endl;
+		std::cout << "***********************" << std::endl;
+		std::cout << "INT :" << std::endl;
+		std::cout << "max( a, b ) = " << std::max<int>(a, b) << std::endl;
+		std::cout << "min( a, b ) = " << std::min<int>(a, b) << std::endl;
+		std::cout << "***********************" << std::endl;
+		std::cout << "SWAP : " << std::endl;
+		std::swap(a, b);
+		std::cout << "a = " << a << std::endl;
+		std::cout << "b = " << b << std::endl;
 	}
 	return (0);
 }

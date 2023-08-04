@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 10:16:43 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/21 10:43:50 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:52:11 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ int	main(void)
 	::iter(tab2, 6, trip);
 	::iter(tab1, 6, doub);
 
+	std::cout << "\e[36m\e[1m# INT\e[0m" << std::endl;
 	for (int i = 0; i < 6; i++)
 	{
 		std::cout << tab1[i] << " ";
 		std::cout << std::endl;
 	}
-
+	std::cout << std::endl;
+	std::cout << "\e[36m\e[1m# DOUBLE\e[0m" << std::endl;
 	for (int i = 0; i < 6; i++)
 	{
 

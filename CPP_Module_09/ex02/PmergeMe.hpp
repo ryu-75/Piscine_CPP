@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/03 19:40:53 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:15:39 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,20 @@
 #include <list>
 #include <cstdlib>
 
+typedef struct	edge
+{
+	int	vertices;	// (also known as a node)
+	int	destination;
+	int	src;
+	int	weight;
+}	edge;
+
 // std::vector<typename T>	stackValue;
 class PmergeMe
 {
 	public:
-		PmergeMe(int destination, int weight);
+		PmergeMe();
+		PmergeMe(edge s_edges, int vertices);
 		PmergeMe(const PmergeMe &lhs);
 		~PmergeMe();
 
@@ -33,23 +42,22 @@ class PmergeMe
 
 		void	parseValue(char **av, int ac);
 		void	displayUnsorted(void) const;
+		void	initGraph(std::vector<edge> const &edges, int size, char **av);
 
+		size_t	getSize(void) const;
 		class ExceptionNegVal
 		{
-			public: 
-				ExceptionNegVal(const std::string &msg) : _message(msg) {}
- 			const char* what() const;
-			private:
-				std::string	_message;
+			public :
+				virtual void	what() const throw()
+				{
+					std::cerr << "🔺  Exception : accept positive value only" << std::endl;
+				}
 		};
 
-		int	_destination;
-		int	_weight;
 	private:
-		PmergeMe();
-		// int	_vertices
-		// std::list<int<Matrix>>	_adjacencyList;
 		std::vector<int>	_stackValue;
+		std::vector<int>	_stackTest;
+		// std::list<int<Matrix>>	_adjacencyList;
 };
 
 std::ostream&	operator<<(std::ostream &flux, const PmergeMe &input);

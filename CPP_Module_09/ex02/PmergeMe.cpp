@@ -3,34 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:02 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/03 20:38:54 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/04 14:44:50 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(int destination, int weight) : _destination(destination), _weight(weight)
+PmergeMe::PmergeMe()
 {
-	std::cout << "Overload constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
+}
+
+PmergeMe::PmergeMe(edge s_edges, int vertices)
+{
+	std::cout << "Default constructor called" << std::endl;
+	s_edges.vertices = vertices;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &lhs)
 {
-	this->_destination = lhs._destination;
-	this->_weight = lhs._weight;
+	*this = lhs;
 }
 
 PmergeMe&	PmergeMe::operator=(const PmergeMe &copy)
 {
 	if (this != &copy)
-	{
-		this->_destination = copy._destination;
-		this->_weight = copy._weight;
 		return (*this);
-	}
 	return (*this);
 }
 
@@ -39,10 +40,10 @@ PmergeMe::~PmergeMe()
 	std::cout << "Destructor called" << std::endl;
 }
 
-const char*	PmergeMe::ExceptionNegVal::what() const
-{
-	return (_message.c_str());
-}
+// const char*	PmergeMe::ExceptionNegVal::what() const
+// {
+// 	return (_message.c_str());
+// }
 
 void	PmergeMe::parseValue(char **av, int ac)
 {
@@ -52,17 +53,17 @@ void	PmergeMe::parseValue(char **av, int ac)
 		if (av[i] && isdigit(*av[i]) && *av[i] != '-')
 		{
 			res = atoi(av[i]);
-			this->_stackValue.push_back(res);	
+			this->_stackValue.push_back(res);
 		}
-		else if (*av[i] == '-' && isdigit(*av[i]))
-			throw ExceptionNegVal("🔺  Error: Number format should be positive");
+		// else if (*av[i] == '-' && isdigit(*av[i]))
+			// throw ExceptionNegVal("🔺  Error: Number format should be positive");
 	}
 }
 
 void	PmergeMe::displayUnsorted(void) const
 {
-	if (this->_stackValue.size() == 0)
-		throw ExceptionNegVal("🔺  Error: Stack is empty");
+	// if (this->_stackValue.size() == 0)
+	// 	throw ExceptionNegVal("🔺  Error: Stack is empty");
 	for (size_t i = 0; i < this->_stackValue.size(); i++)
 	{
 		std::cout << this->_stackValue[i] << ' ';
@@ -71,26 +72,62 @@ void	PmergeMe::displayUnsorted(void) const
 	}
 }
 
+
+
+void	PmergeMe::initGraph(std::vector<edge> const &edges, int nodes, char **av)
+{
+	int	res = 0;
+	int	i = 0;
+
+	for (i = 0; i < nodes; i++)
+	{
+		try
+		{
+			if (av[i] && *av[i] == '-' && isdigit(*av[i + 1]))
+				throw PmergeMe::ExceptionNegVal();
+			else if (av[i] && isdigit(*av[i]) && *av[i] != '-')
+			{
+				res = atoi(av[i]);
+				_stackValue[edges[i].weight] = res;
+				_stackValue[edges[i].destination] = res;
+				_stackValue[edges[i].src] = res;
+			}
+		}
+		catch (const std::exception & e)
+		{
+			e.what();
+		}
+	}
+}
+
+// **************** ACCESS *************************
+
+size_t	PmergeMe::getSize(void) const
+{
+	return (this->_stackValue.size());
+}
+
 std::ostream&	operator<<(std::ostream &flux, const PmergeMe &input)
 {
 	flux << "Before: ";
 	input.displayUnsorted();
 	flux << "After: ";
+	std::cout << std::endl;
 	return (flux);
 }
 
 // pseudo code
 /*
-# ADD ALL VALUES IN EDGE CONTAINER : 
-	FOR i = 0; i < EDGECOUNT; i++ 
+# ADD ALL VALUES IN EDGE CONTAINER :
+	FOR i = 0; i < EDGECOUNT; i++
 THEN
 	vector(EDGECOUNT[i].source) = argv[i];
-	vector(EDGECOUNT[i].weight) = argv[i];	
+	vector(EDGECOUNT[i].weight) = argv[i];
 	vector(EDGECOUNT[i].destination) = argv[i];
 
 (note) ---> edgesCount = ac
 (note) ---> node = edgesCount
-(note) ---> std::vector<Edge> edges(edgesCount) 
+(note) ---> std::vector<Edge> edges(edgesCount)
 
 # BELLMAN-FORD ALGORITHM
 	FOR i = 0; i < node; i++
@@ -99,7 +136,7 @@ THEN
 		throw exception("Graph contain a cycle of negative weights");
 	RETURN (0);
 
-bool bellmanFord(std::vector<int>& distances, const std::vector<Edge>& edges, int nodes, int source) {
+bool bellmanFord(std::vectors_edges.vertices<int>& distances, const std::vector<Edge>& edges, int nodes, int source) {
     distances.assign(nodes, INF);
     distances[source] = 0;
 
