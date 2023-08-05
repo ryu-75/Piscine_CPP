@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/04 14:15:39 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:05:09 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,49 +18,55 @@
 #include <cstring>
 #include <string>
 #include <vector>
-#include <list>
+#include <deque>
 #include <cstdlib>
+#include <time.h>
 
-typedef struct	edge
-{
-	int	vertices;	// (also known as a node)
-	int	destination;
-	int	src;
-	int	weight;
-}	edge;
-
-// std::vector<typename T>	stackValue;
 class PmergeMe
 {
 	public:
-		PmergeMe();
-		PmergeMe(edge s_edges, int vertices);
-		PmergeMe(const PmergeMe &lhs);
+		// ************** ALIASES *******************
+		typedef std::vector<int>	_vector;
+		typedef std::deque<int>		_deque;
+
+		// ************** CONS / DES ****************
+		PmergeMe(char **av);
+		PmergeMe(const PmergeMe &copy);
 		~PmergeMe();
 
-		PmergeMe&	operator=(const PmergeMe &copy);
+		PmergeMe&	operator=(const PmergeMe &lhs);
 
-		void	parseValue(char **av, int ac);
-		void	displayUnsorted(void) const;
-		void	initGraph(std::vector<edge> const &edges, int size, char **av);
+		// ************** METHODS *******************
+		void	parseToken(std::string tkn);
 
-		size_t	getSize(void) const;
-		class ExceptionNegVal
+		template <typename T>
+		void	displayValue(T& v_cont);
+
+		template <typename T>
+		double	displayResult(T& cont);
+
+		template <typename T>
+		void	mergeSortHelper(T &content, int left, int right);
+
+		template <typename T>
+		void	merge(T &content, int left, int mid, int right);
+
+		template <typename T>
+		void	mergeSort(T &content);
+
+		// ************** TRY / CATCH ***************
+		class MergeException
 		{
 			public :
-				virtual void	what() const throw()
-				{
-					std::cerr << "🔺  Exception : accept positive value only" << std::endl;
-				}
+				MergeException(const std::string &message) : _message(message) {}
+			const char	*what() const;
+			private :
+				const std::string	_message;
 		};
-
 	private:
-		std::vector<int>	_stackValue;
-		std::vector<int>	_stackTest;
-		// std::list<int<Matrix>>	_adjacencyList;
+		PmergeMe();
+		_vector	_vec;
+		_deque	_deq;
 };
-
-std::ostream&	operator<<(std::ostream &flux, const PmergeMe &input);
-
 
 #endif // ************************* PMERGEME_HPP *************************
