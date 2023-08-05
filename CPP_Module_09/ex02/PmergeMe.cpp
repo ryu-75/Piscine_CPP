@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 11:23:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/05 20:12:35 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:22:03 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void	PmergeMe::parseToken(std::string tkn)
 {
 	for (size_t i = 0; i < tkn.size(); ++i)
 	{
+		if (atoi(tkn.c_str()) < 0 || atoi(tkn.c_str()) > INT_MAX)
+		    throw MergeException("Error: value out of range");
 		if (!isdigit(tkn[i]))
 			throw MergeException("Error: invalid arguments");
-		if (atoi(tkn.c_str()) < 0)
-			throw MergeException("Error: positive value only");
 	}
 }
 

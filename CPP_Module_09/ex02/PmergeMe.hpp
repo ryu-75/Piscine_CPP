@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/05 20:05:09 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:18:08 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include <deque>
 #include <cstdlib>
 #include <time.h>
+#include <limits.h>
 
 class PmergeMe
 {
