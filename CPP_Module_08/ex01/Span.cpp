@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:20:09 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/25 15:49:32 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/09 19:13:50 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,32 +79,26 @@ void	Span::addNumber(unsigned int n)
 
 unsigned int	Span::shortestSpan(void) const
 {
-	std::vector<int>::const_iterator	vOne;
-	std::vector<int>::const_iterator	vTwo;
-	int	diff = INT_MAX;
-
 	if (this->_vct.size() < 2)
-		throw (Span::NotEnoughNum());
-	for (vOne = this->_vct.begin(); vOne < this->_vct.end(); vOne++)
-		for (vTwo = vOne + 1; vTwo < this->_vct.end(); vTwo++)
-			if (abs(*vOne - *vTwo) < diff)
-				diff = abs(*vOne - *vTwo);
-	return (diff);
+		throw Span::NotEnoughNum(); // Suppose que Span::NotEnoughNum() est une exception appropriée à lever
+	std::vector<int>	copy = this->_vct;
+	std::sort(copy.begin(), copy.end());
+	std::vector<int>::const_iterator	it = std::min_element(this->_vct.begin(), this->_vct.end());
+	int	i = copy[1];
+	int	res = i - *it;
+	return (res);
 }
 
 unsigned int	Span::longestSpan(void) const
 {
-	std::vector<int>::const_iterator	vOne;
-	std::vector<int>::const_iterator	vTwo;
-	int	diff = INT_MIN;
-
 	if (this->_vct.size() < 2)
 		throw (Span::NotEnoughNum());
-	for (vOne = this->_vct.begin(); vOne != this->_vct.end(); vOne++)
-		for (vTwo = vOne + 1; vTwo != this->_vct.end(); vTwo++)
-			if (abs(*vOne - *vTwo) > diff)
-				diff = abs(*vOne - *vTwo);
-	return (diff);
+	std::vector<int>	copy = this->_vct;
+	std::sort(copy.begin(), copy.end());
+	std::vector<int>::const_iterator	it = std::max_element(this->_vct.begin(), this->_vct.end());
+	int	i = copy[this->_vct.size() - 2];
+	int	res = *it - i;
+	return (res);
 }
 
 Span::~Span()
