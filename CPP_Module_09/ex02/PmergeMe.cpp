@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 11:23:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/05 20:22:03 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/10 20:27:36 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ double	PmergeMe::displayResult(T& cont)
 
 	clock_t	start = clock();
 	indexSort(cont);
-	// mergeSort(cont);
+	mergeSort(cont);
 	std::cout << std::endl;
 	std::cout << "\e[32m\e[1mAfter: \e[0m";
 	displayValue(cont);
@@ -166,15 +166,19 @@ void	PmergeMe::indexSort(T &content)
 			indexOdds.push_back(std::make_pair(*contentIt, index));
 		}
 	}
-
 	std::sort(indexPairs.begin(), indexPairs.end(), ComparePairs());
+	insertSort(content, indexPairs, indexOdds);
+}
 
+template <typename T, typename U, typename V>
+void	PmergeMe::insertSort(T &content, U &indexPairs, V &indexOdds)
+{
     T sortedContent;
 
-    typename std::vector<std::pair<Value, int> >::const_iterator itPairs = indexPairs.begin();
+    typename U::const_iterator itPairs = indexPairs.begin();
     for (; itPairs != indexPairs.end(); itPairs++)
         sortedContent.push_back(itPairs->first);
-    typename std::vector<std::pair<Value, int> >::const_iterator itOdds = indexOdds.begin();
+    typename V::const_iterator itOdds = indexOdds.begin();
     for (; itOdds != indexOdds.end(); itOdds++)
         sortedContent.push_back(itOdds->first);
     content = sortedContent;

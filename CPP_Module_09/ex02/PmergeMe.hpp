@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/05 20:18:08 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/10 20:25:14 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,10 @@ class PmergeMe
 
 		template <typename T>
 		void	mergeSort(T &content);
+
+		template <typename T, typename U, typename V>
+		void	insertSort(T &content, U &indexPairs, V &indexOdds);
+
 
 		struct ComparePairs
 		{
