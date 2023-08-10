@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 11:23:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/05 20:22:03 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/10 12:29:37 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,18 +127,62 @@ void	PmergeMe::merge(T &content, int left, int mid, int right)
 		}
 		++contentIt;
 	}
-
-	while (leftIt != leftArr.end())
+	for ( ; leftIt != leftArr.end(); ++leftIt)
 	{
 		*contentIt = *leftIt;
-		++leftIt;
 		++contentIt;
 	}
-
-	while (rightIt != rightArr.end())
+	for ( ; rightIt != rightArr.end(); ++rightIt)
 	{
 		*contentIt = *rightIt;
-		++rightIt;
 		++contentIt;
 	}
 }
+
+int	PmergeMe::jacobsthalst(int n)
+{
+	if (n == 0)
+		return (n);
+	if (n == 1)
+		return (n);
+	else
+		return ((jacobsthalst(n - 1)) + 2 * jacobsthalst(n - 2));
+}
+
+
+/*
+	Fonction Jacobsthal(n) :
+    Si n == 0 :
+        Retourner 0
+    Sinon si n == 1 :
+        Retourner 1
+    Sinon :
+        Retourner Jacobsthal(n - 1) + 2 * Jacobsthal(n - 2)
+
+	Fonction IndexSort(tableau) :
+    Créer un tableau vide indexPairs
+    Créer un tableau vide indexOdds
+
+    Pour chaque valeur dans le tableau :
+        Si valeur est pair :
+            Ajouter (valeur, Jacobsthal(valeur)) à indexPairs
+        Sinon :
+            Ajouter (valeur, valeur) à indexOdds
+
+    Trier indexPairs en utilisant le deuxième élément de chaque paire
+
+    Créer un tableau vide resultat
+
+    Pour chaque paire dans indexPairs :
+        Ajouter premier élément de la paire à resultat
+
+    Pour chaque paire dans indexOdds :
+        Ajouter premier élément de la paire à resultat
+
+    Retourner resultat
+
+	Fonction Principale() :
+    Lire le tableau de valeurs positives
+    TriéTableau = IndexSort(tableau)
+    Afficher TriéTableau
+*/

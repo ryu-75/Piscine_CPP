@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#pragma	once
 
 #include <stack>
 #include <iostream>
@@ -53,5 +52,3 @@ class	MutantStack : public std::stack<T>
 			return (this->c.end());
 		};
 };
-
-#endif // ************************** MUTANTSTACK_HPP **************************

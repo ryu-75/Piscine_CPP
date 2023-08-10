@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 12:18:06 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/05 20:18:08 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/10 12:21:32 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ class PmergeMe
 
 		// ************** METHODS *******************
 		void	parseToken(std::string tkn);
+
+		int	jacobsthalst(int n);
 
 		template <typename T>
 		void	displayValue(T& v_cont);

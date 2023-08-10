@@ -79,32 +79,24 @@ void	Span::addNumber(unsigned int n)
 
 unsigned int	Span::shortestSpan(void) const
 {
-	std::vector<int>::const_iterator	vOne;
-	std::vector<int>::const_iterator	vTwo;
-	int	diff = INT_MAX;
+	std::vector<int>::const_iterator	vOne = min_element(this->_vct.begin(), this->_vct.end());
+	// std::vector<int>::const_iterator	vTwo = max_element(this->_vct.begin(), this->_vct.end());
 
 	if (this->_vct.size() < 2)
 		throw (Span::NotEnoughNum());
-	for (vOne = this->_vct.begin(); vOne < this->_vct.end(); vOne++)
-		for (vTwo = vOne + 1; vTwo < this->_vct.end(); vTwo++)
-			if (abs(*vOne - *vTwo) < diff)
-				diff = abs(*vOne - *vTwo);
+	int	diff = *vOne;
+	// std::cout << "diff : " << diff << std::endl;
 	return (diff);
 }
 
 unsigned int	Span::longestSpan(void) const
 {
-	std::vector<int>::const_iterator	vOne;
-	std::vector<int>::const_iterator	vTwo;
-	int	diff = INT_MIN;
+	int	vTwo = *std::max_element(this->_vct.begin(), this->_vct.end());
 
 	if (this->_vct.size() < 2)
 		throw (Span::NotEnoughNum());
-	for (vOne = this->_vct.begin(); vOne != this->_vct.end(); vOne++)
-		for (vTwo = vOne + 1; vTwo != this->_vct.end(); vTwo++)
-			if (abs(*vOne - *vTwo) > diff)
-				diff = abs(*vOne - *vTwo);
-	return (diff);
+	unsigned int	ret = *vTwo;
+	return (ret);
 }
 
 Span::~Span()
