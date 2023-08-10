@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:20:09 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/09 19:13:50 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/09 19:16:08 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	Span::addNumber(unsigned int n)
 unsigned int	Span::shortestSpan(void) const
 {
 	if (this->_vct.size() < 2)
-		throw Span::NotEnoughNum(); // Suppose que Span::NotEnoughNum() est une exception appropriée à lever
+		throw Span::NotEnoughNum();
 	std::vector<int>	copy = this->_vct;
 	std::sort(copy.begin(), copy.end());
 	std::vector<int>::const_iterator	it = std::min_element(this->_vct.begin(), this->_vct.end());
