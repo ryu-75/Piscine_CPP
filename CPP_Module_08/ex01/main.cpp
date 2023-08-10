@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 12:20:04 by nlorion           #+#    #+#             */
-/*   Updated: 2023/07/25 15:42:01 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/09 19:13:13 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ int	main(void)
 	try
 	{
 		sp.addNumber(6);
-		sp.addNumber(3);
+		sp.addNumber(2);
 		sp.addNumber(17);
-		sp.addNumber(9);
-		sp.addNumber(11);
+		sp.addNumber(59);
+		sp.addNumber(20);
 
 		sp.dispVector();
 		std::cout << "Shortest → " << sp.shortestSpan() << std::endl;
