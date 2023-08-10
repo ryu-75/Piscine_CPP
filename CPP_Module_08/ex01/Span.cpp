@@ -79,6 +79,16 @@ void	Span::addNumber(unsigned int n)
 
 unsigned int	Span::shortestSpan(void) const
 {
+<<<<<<< HEAD
+	std::vector<int>::const_iterator	vOne = min_element(this->_vct.begin(), this->_vct.end());
+	// std::vector<int>::const_iterator	vTwo = max_element(this->_vct.begin(), this->_vct.end());
+
+	if (this->_vct.size() < 2)
+		throw (Span::NotEnoughNum());
+	int	diff = *vOne;
+	// std::cout << "diff : " << diff << std::endl;
+	return (diff);
+=======
 	if (this->_vct.size() < 2)
 		throw Span::NotEnoughNum();
 	std::vector<int>	copy = this->_vct;
@@ -87,10 +97,19 @@ unsigned int	Span::shortestSpan(void) const
 	int	i = copy[1];
 	int	res = i - *it;
 	return (res);
+>>>>>>> 93aff9e852c35954946efb3a3fcb5eab5947fb7a
 }
 
 unsigned int	Span::longestSpan(void) const
 {
+<<<<<<< HEAD
+	int	vTwo = *std::max_element(this->_vct.begin(), this->_vct.end());
+
+	if (this->_vct.size() < 2)
+		throw (Span::NotEnoughNum());
+	unsigned int	ret = *vTwo;
+	return (ret);
+=======
 	if (this->_vct.size() < 2)
 		throw (Span::NotEnoughNum());
 	std::vector<int>	copy = this->_vct;
@@ -99,6 +118,7 @@ unsigned int	Span::longestSpan(void) const
 	int	i = copy[this->_vct.size() - 2];
 	int	res = *it - i;
 	return (res);
+>>>>>>> 93aff9e852c35954946efb3a3fcb5eab5947fb7a
 }
 
 Span::~Span()

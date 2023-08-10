@@ -6,7 +6,7 @@
 /*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 14:44:41 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/04 14:50:04 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/07 11:45:34 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,11 @@ int	main(void)
 		std::cout << "a = " << a << std::endl;
 		std::cout << "b = " << b << std::endl;
 		std::cout << "***********************" << std::endl;
+		
 		std::cout << "max( a, b ) = " << std::max<int>(a, b) << std::endl;
 		std::cout << "min( a, b ) = " << std::min<int>(a, b) << std::endl;
 		std::cout << "***********************" << std::endl;
+
 		std::cout << "SWAP : " << std::endl;
 		std::swap(a, b);
 		std::cout << "a = " << a << std::endl;
@@ -60,14 +62,17 @@ int	main(void)
 		std::cout << "pi = " << pi << std::endl;
 		std::cout << "e = " << e << std::endl;
 		std::cout << "***********************" << std::endl;
+
 		std::cout << "DOUBLE :" << std::endl;
 		std::cout << "max( a, b ) = " << std::max(pi, e) << std::endl;
 		std::cout << "min( a, b ) = " << std::min(pi, e) << std::endl;
 		std::cout << "***********************" << std::endl;
+
 		std::cout << "INT :" << std::endl;
 		std::cout << "max( a, b ) = " << std::max<int>(pi, e) << std::endl;
 		std::cout << "min( a, b ) = " << std::min<int>(pi, e) << std::endl;
 		std::cout << "***********************" << std::endl;
+
 		std::cout << "SWAP : " << std::endl;
 		std::swap(pi, e);
 		std::cout << "pi = " << pi << std::endl;
@@ -81,15 +86,18 @@ int	main(void)
 
 		std::cout << "a = " << a << std::endl;
 		std::cout << "b = " << b << std::endl;
+
 		std::cout << "***********************" << std::endl;
 		std::cout << "CHAR :" << std::endl;
 		std::cout << "max( a, b ) = " << std::max(a, b) << std::endl;
 		std::cout << "min( a, b ) = " << std::min(a, b) << std::endl;
 		std::cout << "***********************" << std::endl;
+
 		std::cout << "INT :" << std::endl;
 		std::cout << "max( a, b ) = " << std::max<int>(a, b) << std::endl;
 		std::cout << "min( a, b ) = " << std::min<int>(a, b) << std::endl;
 		std::cout << "***********************" << std::endl;
+
 		std::cout << "SWAP : " << std::endl;
 		std::swap(a, b);
 		std::cout << "a = " << a << std::endl;
