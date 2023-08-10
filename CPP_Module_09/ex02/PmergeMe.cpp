@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/05 11:23:07 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/10 12:29:37 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/05 20:22:03 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ double	PmergeMe::displayResult(T& cont)
 
 	clock_t	start = clock();
 	indexSort(cont);
-	mergeSort(cont);
+	// mergeSort(cont);
 	std::cout << std::endl;
 	std::cout << "\e[32m\e[1mAfter: \e[0m";
 	displayValue(cont);
@@ -129,19 +129,22 @@ void	PmergeMe::merge(T &content, int left, int mid, int right)
 		}
 		++contentIt;
 	}
-	for ( ; leftIt != leftArr.end(); ++leftIt)
+
+	while (leftIt != leftArr.end())
 	{
 		*contentIt = *leftIt;
+		++leftIt;
 		++contentIt;
 	}
-	for ( ; rightIt != rightArr.end(); ++rightIt)
+
+	while (rightIt != rightArr.end())
 	{
 		*contentIt = *rightIt;
+		++rightIt;
 		++contentIt;
 	}
 }
 
-<<<<<<< HEAD
 template <typename T>
 void	PmergeMe::indexSort(T &content)
 {
@@ -197,52 +200,3 @@ int	PmergeMe::jacobsthal(T n)
 	}
 	return (result);
 }
-=======
-int	PmergeMe::jacobsthalst(int n)
-{
-	if (n == 0)
-		return (n);
-	if (n == 1)
-		return (n);
-	else
-		return ((jacobsthalst(n - 1)) + 2 * jacobsthalst(n - 2));
-}
-
-
-/*
-	Fonction Jacobsthal(n) :
-    Si n == 0 :
-        Retourner 0
-    Sinon si n == 1 :
-        Retourner 1
-    Sinon :
-        Retourner Jacobsthal(n - 1) + 2 * Jacobsthal(n - 2)
-
-	Fonction IndexSort(tableau) :
-    Créer un tableau vide indexPairs
-    Créer un tableau vide indexOdds
-
-    Pour chaque valeur dans le tableau :
-        Si valeur est pair :
-            Ajouter (valeur, Jacobsthal(valeur)) à indexPairs
-        Sinon :
-            Ajouter (valeur, valeur) à indexOdds
-
-    Trier indexPairs en utilisant le deuxième élément de chaque paire
-
-    Créer un tableau vide resultat
-
-    Pour chaque paire dans indexPairs :
-        Ajouter premier élément de la paire à resultat
-
-    Pour chaque paire dans indexOdds :
-        Ajouter premier élément de la paire à resultat
-
-    Retourner resultat
-
-	Fonction Principale() :
-    Lire le tableau de valeurs positives
-    TriéTableau = IndexSort(tableau)
-    Afficher TriéTableau
-*/
->>>>>>> 42b59ce4c0a233e80d3052950b888a05f30df754
