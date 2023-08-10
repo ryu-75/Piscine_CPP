@@ -18,6 +18,7 @@
 #include <cstring>
 #include <algorithm>
 #include <sstream>
+#include <climits>
 
 class Rpn
 {
@@ -32,8 +33,18 @@ class Rpn
         void    multiple(void);
         void    division(void);
         void    soustraction(void);
+        void    catchError(std::string arg);
+
         std::string calculate(std::string arg);
-    
+
+        class   ParsException
+        {
+            public :
+                ParsException(const std::string &message) : _message(message) {}
+            const char  *what() const;
+            private :
+                std::string   _message;
+        };
     private:
         std::stack<int>  _stack;
 };

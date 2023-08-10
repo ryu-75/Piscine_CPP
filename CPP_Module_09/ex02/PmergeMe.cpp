@@ -47,11 +47,12 @@ void	PmergeMe::parseToken(std::string tkn)
 {
 	for (size_t i = 0; i < tkn.size(); ++i)
 	{
-		if (atoi(tkn.c_str()) < 0 || atoi(tkn.c_str()) > INT_MAX)
-		    throw MergeException("Error: value out of range");
-		if (!isdigit(tkn[i]))
+		if (tkn[i] < '0' || tkn[i] > '9')
 			throw MergeException("Error: invalid arguments");
 	}
+	int	value = atoi(tkn.c_str());
+	if (value < 0 || value > INT_MAX)
+			throw MergeException("Error: value out of range");
 }
 
 template <typename T>
@@ -74,6 +75,7 @@ double	PmergeMe::displayResult(T& cont)
 	displayValue(cont);
 
 	clock_t	start = clock();
+	indexSort(cont);
 	mergeSort(cont);
 	std::cout << std::endl;
 	std::cout << "\e[32m\e[1mAfter: \e[0m";
@@ -81,7 +83,7 @@ double	PmergeMe::displayResult(T& cont)
 	std::cout << std::endl;
 
 	clock_t	end = clock() - start;
-	double	time = static_cast<double>(end * 10000) / CLOCKS_PER_SEC;
+	double	time = static_cast<double>(end * 10000.0) / CLOCKS_PER_SEC;
 	return (time);
 }
 
@@ -141,4 +143,60 @@ void	PmergeMe::merge(T &content, int left, int mid, int right)
 		++rightIt;
 		++contentIt;
 	}
+}
+
+template <typename T>
+void	PmergeMe::indexSort(T &content)
+{
+	typedef typename T::value_type	Value;
+	std::vector<std::pair<Value, int> >	indexPairs;
+	std::vector<std::pair<Value, int> >	indexOdds;
+	typename T::iterator	contentIt = content.begin();
+	for (; contentIt != content.end(); contentIt++)
+	{
+		int	index;
+		if (contentIt == content.begin() || ((std::distance(content.begin(), contentIt) % 2 == 0)))
+		{
+			index = jacobsthal(*contentIt);
+			indexPairs.push_back(std::make_pair(*contentIt, index));
+		}
+		else
+		{
+			index = *contentIt;
+			indexOdds.push_back(std::make_pair(*contentIt, index));
+		}
+	}
+
+	std::sort(indexPairs.begin(), indexPairs.end(), ComparePairs());
+
+    T sortedContent;
+
+    typename std::vector<std::pair<Value, int> >::const_iterator itPairs = indexPairs.begin();
+    for (; itPairs != indexPairs.end(); itPairs++)
+        sortedContent.push_back(itPairs->first);
+    typename std::vector<std::pair<Value, int> >::const_iterator itOdds = indexOdds.begin();
+    for (; itOdds != indexOdds.end(); itOdds++)
+        sortedContent.push_back(itOdds->first);
+    content = sortedContent;
+}
+
+template <typename T>
+int	PmergeMe::jacobsthal(T n)
+{
+	if (n == 0)
+		return (0);
+	if (n == 1)
+		return (1);
+
+	int	prev1 = 1;
+	int	prev2 = 0;
+	int	result = 0;
+
+	for (T i = 2; i <= n; ++i)
+	{
+		result = prev1 + 2 * prev2;
+		prev2= prev1;
+		prev1 = result;
+	}
+	return (result);
 }

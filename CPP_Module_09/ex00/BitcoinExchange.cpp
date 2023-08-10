@@ -61,11 +61,11 @@ void	Btc::parseFiles(void)
 {
 	std::ifstream	file("./data.csv");
 	std::string	line;
-	
+
 	if (file.is_open() == true)
 	{
 		int	i = 0;
-		
+
 		getline(file, line);
 		if (!(line.find("date,exchange_rate") != std::string::npos))
 			throw ExceptionBtc("Error: File should have \"date,exchange_rate\" at the begginning");
@@ -74,7 +74,7 @@ void	Btc::parseFiles(void)
 			getline(file, line);
 			std::string	nb_str;
 			std::string	date_str;
-			
+
 			std::size_t	pos = line.find(',');
 			if (pos != std::string::npos)
 			{
@@ -86,9 +86,9 @@ void	Btc::parseFiles(void)
 					throw ExceptionBtc("Error: date already exist");
 				if (parsValue(nb_str) == false)
 					throw ExceptionBtc("Error: invalid value");
-					
+
 				float	nb = strtof(nb_str.c_str(), NULL);
-				
+
 				if (nb < 0)
 					throw ExceptionBtc("Error: not a positive number");
 				_btcMap.insert(std::make_pair(date_str, strtof(nb_str.c_str(), NULL)));
@@ -97,7 +97,7 @@ void	Btc::parseFiles(void)
 		}
 	}
 	else
-		throw ("Error: File cannot be open");
+		throw ExceptionBtc("Error: File cannot be open");
 	file.close();
 }
 
@@ -148,9 +148,9 @@ void	Btc::doExchange(std::string line)
 	if (val.compare(0, 3, " | "))
 		throw ExceptionBtc("Error: bad line");
 	val.erase(0, 3);
-	
+
 	double	nbValue = atof(val.c_str());
-	
+
 	map_iterator	it = nearestKey(getCurrentDate);
 	if (nbValue < 0)
 		throw ExceptionBtc("Error: not a positive number");
@@ -160,17 +160,17 @@ void	Btc::doExchange(std::string line)
 		throw ExceptionBtc("Error: Bad format");
 	if (it == _btcMap.end())
 		throw ExceptionBtc("Error: too recent date to output bitcoin value");
-		
+
 	double	exchangeRate = it->second;
-	double	res = exchangeRate * nbValue;	
-	
+	double	res = exchangeRate * nbValue;
+
 	std::cout << getCurrentDate << " => " << nbValue << " = " << res << std::endl;
 }
 
 Btc::map_iterator	Btc::nearestKey(std::string& key)
 {
 		map_iterator	it = _btcMap.find(key);
-		
+
 		if (it != _btcMap.end())
 			return (it);
 		it = _btcMap.lower_bound(key);

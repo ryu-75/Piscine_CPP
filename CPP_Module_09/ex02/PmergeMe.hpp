@@ -19,6 +19,7 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <algorithm>
 #include <cstdlib>
 #include <time.h>
 #include <limits.h>
@@ -41,6 +42,12 @@ class PmergeMe
 		void	parseToken(std::string tkn);
 
 		template <typename T>
+		int	jacobsthal(T n);
+
+		template <typename T>
+		void	indexSort(T &content);
+
+		template <typename T>
 		void	displayValue(T& v_cont);
 
 		template <typename T>
@@ -54,6 +61,14 @@ class PmergeMe
 
 		template <typename T>
 		void	mergeSort(T &content);
+
+		struct ComparePairs
+		{
+    		bool operator()(const std::pair<int, int>& a, const std::pair<int, int>& b) const
+			{
+        		return a.second < b.second;
+    		}
+		};
 
 		// ************** TRY / CATCH ***************
 		class MergeException

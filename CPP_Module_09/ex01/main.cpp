@@ -16,8 +16,15 @@ int main(int ac, char **av)
 {
     if (ac != 2)
         return (std::cout << "Error: bad argument" << std::endl, 1);
-    Rpn rpn;
+    try
+    {
+        Rpn rpn;
 
-    std::cout << rpn.calculate(av[1]) << std::endl;
+        std::cout << rpn.calculate(av[1]) << std::endl;
+    }
+    catch (Rpn::ParsException &e)
+    {
+        std::cout << e.what() << "\n";
+    }
     return (0);
 }
