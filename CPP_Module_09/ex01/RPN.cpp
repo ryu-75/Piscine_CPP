@@ -80,13 +80,16 @@ void    Rpn::catchError(std::string arg)
         while (arg[y] >= '0' && arg[y] <= '9')
             res = res * 10 + (arg[y++] - 48);
         if (res > 9)
-            throw ParsException("🔺  Error: too bigs");
+            throw ParsException("🔺  Error: too big");
         if (arg[i] == 42 || arg[i] == 43 || arg[i] == 45 || arg[i] == 47)
         {
             countAr += 1;
-            if (countNb == 1 && countAr == 1)
+            if ((countNb == 1 && countAr == 1))
                 throw ParsException("🔺  Error: syntax");
         }
+        if ((arg[i] > 57 && arg[i] < 127) || (arg[i] > 32 && arg[i] < 42) ||\
+                arg[i] == 46 || arg[i] == 44)
+            throw ParsException("🔺  Error: syntax");
         if ((arg[i] >= '0' && arg[i] <= '9') && arg[i + 1] == ' ')
             countNb += 1;
     }

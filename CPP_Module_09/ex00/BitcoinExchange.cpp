@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nlorion <nlorion@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nlorion <nlorion@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 11:50:24 by nlorion           #+#    #+#             */
-/*   Updated: 2023/08/01 14:28:18 by nlorion          ###   ########.fr       */
+/*   Updated: 2023/08/11 11:20:17 by nlorion          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	Btc::parseFiles(void)
 		}
 	}
 	else
-		throw ExceptionBtc("Error: File cannot be open");
+		throw ExceptionBtc("Error: ./data.csv cannot be open");
 	file.close();
 }
 
