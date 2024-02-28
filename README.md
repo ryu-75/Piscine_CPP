@@ -1,6 +1,6 @@
 # C++ Pool - 42
 
-<p>This repository is related to a C++ pool undertaken during my studies at 42. Throughout this pool, </p><br>
+<p>This repository is related to a C++ pool undertaken during my studies at 42. Throughout this pool, </p>
 <p>I was able to discover and deepen my knowledge of the language.</p><br>
 <p>The modules are divided into several days :</p>
 <ol>
