@@ -2,7 +2,6 @@
 
 <p>This repository is related to a C++ pool undertaken during my studies at 42. Throughout this pool, </p><br>
 <p>I was able to discover and deepen my knowledge of the language.</p><br>
-<br>
 <p>The modules are divided into several days :</p>
 <ol>
   <li><strong>CPP_00:</strong> Namespaces, classes, member functions, stdio streams, initialization lists, static, const, and other basics.</li>
